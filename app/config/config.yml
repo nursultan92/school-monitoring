@@ -1,10 +1,11 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-
+    - { resource: Sonata/block_bundle.yml }
+    - { resource: @FOSUserBundle/Resources/config/security.xml }
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -52,10 +53,15 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
-
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+                    FOSUserBundle: ~
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -64,3 +70,11 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+fos_user:
+    db_driver:        orm # can be orm or mongodb (support is also available within FOSUser for couchdb, propel but none is given for SonataUserBundle)
+    firewall_name:    main
+    user_class:       Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class:  Application\Sonata\UserBundle\Entity\Group
