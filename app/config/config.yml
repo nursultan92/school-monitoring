@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: Sonata/block_bundle.yml }
     - { resource: @FOSUserBundle/Resources/config/security.xml }
+    - { resource: @ApplicationSchoolBundle/Resources/config/admin.xml }
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
@@ -62,6 +63,7 @@ doctrine:
                     FOSUserBundle: ~
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
+                    ApplicationSchoolBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
