@@ -17,6 +17,7 @@ class ClassGroupAdmin  extends Admin{
         $formMapper->add('grade','choice',array('label'=>'Класс','choices'=>array(1=>1,2,3,4,5,6,7,8,9,10,11)))
             ->add('alphabet',null,array('label'=>'Алфавить'))
             ->add('personal','sonata_type_model',array('label'=>'Классный руководитель'));
+            //->add('students','sonata_type_collection',array(),array('edit'=>'inline','inline'=>'table','position'=>'sortable'));
 
     }
 
