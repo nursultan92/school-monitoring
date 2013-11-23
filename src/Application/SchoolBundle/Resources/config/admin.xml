@@ -1,0 +1,55 @@
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="sonata.admin.transfer" class="Application\SchoolBundle\Admin\TransferAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Дополнительно" label="Трансферы"/>
+            <argument />
+            <argument>Application\SchoolBundle\Entity\Transfer</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+        <service id="sonata.admin.nationality" class="Application\SchoolBundle\Admin\NationalityAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Дополнительно" label="Национальности"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\Nationality</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+
+        <service id="sonata.admin.personal" class="Application\SchoolBundle\Admin\PersonalAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Люди" label="Учители"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\Personal</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+
+        <service id="sonata.admin.classgroup" class="Application\SchoolBundle\Admin\ClassGroupAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Классы" label="Класс"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\ClassGroup</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+
+        <service id="sonata.admin.student" class="Application\SchoolBundle\Admin\StudentAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Люди" label="Учени(ки)(цы)"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\Student</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+    </services>
+</container>
