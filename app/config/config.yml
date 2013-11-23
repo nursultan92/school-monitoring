@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: Sonata/block_bundle.yml }
+    - { resource: Sonata/admin_bundle.yml }
     - { resource: @FOSUserBundle/Resources/config/security.xml }
     - { resource: @ApplicationSchoolBundle/Resources/config/admin.xml }
 framework:

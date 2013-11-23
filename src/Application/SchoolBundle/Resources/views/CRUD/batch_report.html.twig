@@ -1,0 +1,17 @@
+{% for classgroup in classes %}
+<h1>Отчет</h1>
+<p>класс {{ classgroup.grade }} - {{ classgroup.alphabet }}</p>
+<p>кл руководитель {{ classgroup.personal.lastname }} {{ classgroup.personal.firstname }}</p>
+<p> На начало года {{ classgroup.students.count() }}</p>
+   <p> По национальностям</p>
+    {% set counts = {} %}
+    {% for student in classgroup.students %}
+        {% set name = student.nationality.name %}
+        {% set count = student.nationality.students.count() %}
+        {% set counts = counts|merge({name : count}) %}
+    {% endfor %}
+    {% for nationality,amount in counts %}
+        {{ nationality }}
+        {{ amount }}
+        {% endfor %}
+{% endfor %}

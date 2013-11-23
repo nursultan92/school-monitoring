@@ -158,4 +158,12 @@ class ClassGroup
     {
         return $this->getGrade() . '-'.  $this->getAlphabet();
     }
+//
+//    public function getNationStat(){
+//        $stat =array();
+//        foreach($this->getStudents() as $student){
+//            $stat[$student->getNationality()] = $student->getNationality()->count();
+//        }
+//        return $stat;
+//    }
 }
