@@ -25,7 +25,7 @@ class StudentAdmin extends Admin
             ->add('personalNumber',null,array('label'=>'№ л.дела'))
             ->add('sex','choice',array('label'=>'Пол','choices'=>array('М'=>'М','Ж'=>'Ж')))
             ->add('nationality','sonata_type_model',array('label'=>'Национальность'))
-            ->add('birthday',null,array('label'=>'Дата рождения','widget'=>'single_text'))
+            ->add('birthday','date',array('label'=>'Дата рождения','widget'=>'choice'))
             ->add('address',null,array('label'=>'Адрес'))
             ->add('telephone',null,array('label'=>'Телефон'))
             //->with('Трансферы',array('expanded'=>true))

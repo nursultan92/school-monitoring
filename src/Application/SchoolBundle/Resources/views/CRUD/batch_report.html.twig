@@ -1,17 +1,81 @@
-{% for classgroup in classes %}
-<h1>Отчет</h1>
-<p>класс {{ classgroup.grade }} - {{ classgroup.alphabet }}</p>
-<p>кл руководитель {{ classgroup.personal.lastname }} {{ classgroup.personal.firstname }}</p>
-<p> На начало года {{ classgroup.students.count() }}</p>
-   <p> По национальностям</p>
-    {% set counts = {} %}
-    {% for student in classgroup.students %}
-        {% set name = student.nationality.name %}
-        {% set count = student.nationality.students.count() %}
-        {% set counts = counts|merge({name : count}) %}
-    {% endfor %}
-    {% for nationality,amount in counts %}
-        {{ nationality }}
-        {{ amount }}
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h3>Отчеты</h3>
+    <div class="panel-group" id="accordion">
+        {% set  num = 1 %}
+        {% for classgroup in classes %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" data-parent="accordion" href="#collapse{{ num }}">
+                            Класс {{ classgroup.grade }} - {{ classgroup.alphabet }}
+                        </a>
+                    </div>
+                </div>
+                <div id="collapse{{ num }}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="container">
+                            <h4 class="text-center">Отчет</h4>
+
+                            <p>Класс {{ classgroup.grade }} - {{ classgroup.alphabet }}</p>
+
+                            <p>классный
+                                руководитель {{ classgroup.personal.lastname }} {{ classgroup.personal.firstname }}</p>
+
+                            <p> На начало года {{ classgroup.students.count() }}</p>
+
+                            <p> По национальностям</p>
+                            {#{% set counts = {} %}#}
+                            {#{% for student in classgroup.students %}#}
+                            {#{% set name = student.nationality.name %}#}
+                            {#{% set count = student.nationality.students.count() %}#}
+                            {#{% set counts = counts|merge({name : count}) %}#}
+                            {#{% endfor %}#}
+                            {#{% for nationality,amount in counts %}#}
+                            {#{{ nationality }}#}
+                            {#{{ amount }}#}
+                            {#{% endfor %}#}
+                        </div>
+
+                        <p>
+                            <strong>Список учащихся {{ classgroup.grade }} - {{ classgroup.alphabet }}</strong>
+
+                            <strong class="pull-right">Классный
+                                руководитель {{ classgroup.personal.firstname }}</strong>
+                        </p>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Ф.И.ученика</th>
+                                <th>№ л. дела</th>
+                                <th>Пол</th>
+                                <th>Национальность</th>
+                                <th>Год рождения</th>
+                                <th>Адрес</th>
+                                <th>Телефон</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for student in classgroup.students %}
+
+                            <tr>
+                                <td>{{ num }}</td>
+                                <td>{{ student.lastname }} {{ student.firstname }} </td>
+                                <td>{{ student.personalNumber }}</td>
+                                <td>{{ student.sex }}</td>
+                                <td>{{ student.nationality.name }}</td>
+                                <td>{{ student.birthday|date('Y-m-d') }}</td>
+                                <td>{{ student.address }}</td>
+                                <td>{{ student.telephone }}</td>
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% set num = num +1 %}
         {% endfor %}
-{% endfor %}
+    </div>
+{% endblock %}
