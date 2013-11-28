@@ -15,8 +15,9 @@ class PersonalAdmin  extends Admin{
 
     protected function configureFormFields(FormMapper $formMapper){
         $formMapper->add('firstname','text',array('label'=>'Имя'));
-        $formMapper->add('lastname','text',array('label'=>'Фамилия'))
-            ->add('classgroup');
+        $formMapper->add('lastname','text',array('label'=>'Фамилия'));
+        $formMapper->add('classgroups',null,array('label'=>'Классный руководитель'));
+
     }
 
     protected function configureListFields(ListMapper $listMapper){
