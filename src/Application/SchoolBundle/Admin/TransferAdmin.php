@@ -14,10 +14,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 class TransferAdmin  extends Admin{
 
     protected function configureFormFields(FormMapper $formMapper){
-        $formMapper->add('place','text',array('label'=>'Место'));
+        $formMapper->add('place');
     }
     protected function configureListFields(ListMapper $listMapper){
-        $listMapper->add('id',null,array('label'=>'ID'))
-            ->addIdentifier('place',null,array('label'=>'Место'));
+        $listMapper->addIdentifier('place');
     }
 } 

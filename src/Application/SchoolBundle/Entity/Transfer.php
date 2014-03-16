@@ -139,6 +139,6 @@ class Transfer
 
     public function __toString()
     {
-        return $this->getPlace();
+        return ($this->getPlace()) ? $this->getPlace() : 'Новый трансфер';
     }
 }

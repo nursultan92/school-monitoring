@@ -444,4 +444,9 @@ class Student
     {
         return $this->nationality;
     }
+
+    public function __toString()
+    {
+        return ($this->getFirstname()) ? $this->getFirstname() . ' ' . $this->getLastname() : 'Новый студент';
+    }
 }

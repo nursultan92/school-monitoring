@@ -7,22 +7,26 @@
  */
 
 namespace Application\SchoolBundle\Admin;
+
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class PersonalAdmin  extends Admin{
+class PersonalAdmin extends Admin
+{
 
-    protected function configureFormFields(FormMapper $formMapper){
-        $formMapper->add('firstname','text',array('label'=>'Имя'));
-        $formMapper->add('lastname','text',array('label'=>'Фамилия'));
-        $formMapper->add('classgroups',null,array('label'=>'Классный руководитель'));
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper->add('firstname');
+        $formMapper->add('lastname');
+        $formMapper->add('classgroups');
 
     }
 
-    protected function configureListFields(ListMapper $listMapper){
-        $listMapper->addIdentifier('firstname',null,array('label'=>'Имя'))
-            ->addIdentifier('lastname',null,array('label'=>'Фамилия'))
-            ->add('classgroups',null,array('label'=>'Руководитель класса'));
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('firstname')
+            ->addIdentifier('lastname')
+            ->add('classgroups');
     }
 } 

@@ -18,7 +18,6 @@ class NationalityAdmin  extends Admin{
     }
 
     protected function configureListFields(ListMapper $listMapper){
-        $listMapper->add('id',null,array('label'=>'Номер'))
-            ->addIdentifier('name',null,array('label'=>'Национальность'));
+        $listMapper->addIdentifier('name', null, array('label' => 'Национальность'));
     }
 } 
