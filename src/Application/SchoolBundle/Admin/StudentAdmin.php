@@ -25,7 +25,7 @@ class StudentAdmin extends Admin
             ->add('personalNumber')
             ->add('sex', 'choice', array('choices' => array('М' => 'М', 'Ж' => 'Ж')))
             ->add('nationality', 'sonata_type_model')
-            ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date('Y') - 14, date('Y'))))
+            ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date("Y") - 20, date("Y") - 5)))
             ->add('address')
             ->add('telephone')
             //->with('Трансферы',array('expanded'=>true))
