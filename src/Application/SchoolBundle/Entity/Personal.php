@@ -24,18 +24,6 @@ class Personal
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $classgroups;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->classgroups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Set firstname
@@ -91,39 +79,6 @@ class Personal
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add classgroups
-     *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroups
-     * @return Personal
-     */
-    public function addClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroups)
-    {
-        $this->classgroups[] = $classgroups;
-
-        return $this;
-    }
-
-    /**
-     * Remove classgroups
-     *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroups
-     */
-    public function removeClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroups)
-    {
-        $this->classgroups->removeElement($classgroups);
-    }
-
-    /**
-     * Get classgroups
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getClassgroups()
-    {
-        return $this->classgroups;
     }
 
     public function __toString()

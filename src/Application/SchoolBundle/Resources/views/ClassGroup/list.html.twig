@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Класс</th>
+            <th>Руководитель класса</th>
+            <th>Список учеников</th>
+        </tr>
+        </thead>
+        {% for classgroup in classgroups %}
+            <tr>
+                <td>{{ classgroup.grade }} - {{ classgroup.alphabet }}</td>
+                <td>{{ classgroup.personal }}</td>
+                <td><a href="{{ path('school_classgroup_get',{'id': classgroup.id}) }}">Ученики</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

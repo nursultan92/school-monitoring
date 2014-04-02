@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    {% set students = classgroup.students %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ф.И.О</th>
+        </tr>
+        </thead>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.lastname }} {{ student.firstname }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

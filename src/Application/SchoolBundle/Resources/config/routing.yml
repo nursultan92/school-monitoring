@@ -1,3 +1,10 @@
-application_school_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ApplicationSchoolBundle:Default:index }
+school_main_index:
+    pattern:  /
+    defaults: { _controller: ApplicationSchoolBundle:Main:index }
+school_classgroup_list:
+    pattern:  /classgroups
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:list }
+
+school_classgroup_get:
+    pattern:  /classgroups/{id}
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:get }
