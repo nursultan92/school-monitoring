@@ -21,8 +21,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
     public function load(ObjectManager $manager)
     {
 
-        $student_information = [
-            ['firstname' => 'Азамат',
+        $student_information = array(
+            array('firstname' => 'Азамат',
                 "lastname" => 'Курманбеков',
                 'personal_number' => 'А-342',
                 'sex' => 'М',
@@ -31,8 +31,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
-            ]
-        ];
+            )
+        );
 
         foreach ($student_information as $info) {
             $st = new Student();

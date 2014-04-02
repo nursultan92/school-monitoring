@@ -23,7 +23,7 @@ class ClassGroupData extends AbstractFixture implements OrderedFixtureInterface 
      */
     function load(ObjectManager $manager)
     {
-        $class_groups = [['A',1],['Б',2],['А',11],['В',10],['А',1]];
+        $class_groups = array(array('A',1),array('Б',2),array('А',11),array('В',10),array('А',1));
         $counter = 0;
         foreach($class_groups as $class)
         {

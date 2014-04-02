@@ -28,20 +28,5 @@ class ClassGroupAdmin  extends Admin{
             ->addIdentifier('grade')
             ->addIdentifier('alphabet')
             ->addIdentifier('personal');
-        //->add('_action','actions',array('actions'=>array('report')));
-    }
-
-    public function getBatchActions(){
-        $actions = parent::getBatchActions();
-
-        if($this->hasRoute('edit') && $this->isGranted('EDIT') && $this->hasRoute('delete') &&
-         $this->isGranted('DELETE')){
-            $actions['report'] = ['label' => 'Отчет', 'ask_confirmation' => false];
-        }
-        return $actions;
-    }
-
-    protected function configureRoutes(RouteCollection $collection ){
-        $collection->add('report',null,array('_controller'=>'ApplicationSchoolBundle:ClassGroupAdminController:batch'));
     }
 }
