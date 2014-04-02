@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block content_title %}
+    Панель отчета
+{% endblock %}
 {% block content %}
     {{ render(controller('ApplicationSchoolBundle:AcademiYear:list')) }}
 {% endblock %}
