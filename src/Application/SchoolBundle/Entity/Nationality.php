@@ -20,18 +20,13 @@ class Nationality
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $students;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->students = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Set name
      *
@@ -41,14 +36,14 @@ class Nationality
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -58,48 +53,20 @@ class Nationality
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Add students
-     *
-     * @param \Application\SchoolBundle\Entity\Student $students
-     * @return Nationality
-     */
-    public function addStudent(\Application\SchoolBundle\Entity\Student $students)
-    {
-        $this->students[] = $students;
-    
-        return $this;
-    }
-
-    /**
-     * Remove students
-     *
-     * @param \Application\SchoolBundle\Entity\Student $students
-     */
-    public function removeStudent(\Application\SchoolBundle\Entity\Student $students)
-    {
-        $this->students->removeElement($students);
-    }
-
-    /**
-     * Get students
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getStudents()
-    {
-        return $this->students;
-    }
 
     public function __toString()
     {
         return ($this->getName()) ? $this->getName() : 'Новый национальность';
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+
 }

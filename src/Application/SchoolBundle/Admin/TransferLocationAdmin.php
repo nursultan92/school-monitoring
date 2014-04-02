@@ -11,7 +11,8 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class TransferAdmin  extends Admin{
+class TransferLocationAdmin extends Admin
+{
 
     protected function configureFormFields(FormMapper $formMapper){
         $formMapper->add('place');

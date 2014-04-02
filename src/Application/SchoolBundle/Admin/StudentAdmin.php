@@ -27,13 +27,7 @@ class StudentAdmin extends Admin
             ->add('nationality', 'sonata_type_model')
             ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date('Y') - 14, date('Y'))))
             ->add('address')
-            ->add('telephone')
-            //->with('Трансферы',array('expanded'=>true))
-            ->add('cameFrom', 'sonata_type_model', array('required' => false))
-            ->add('cameComment')
-            ->add('leftTo', 'sonata_type_model', array('required' => false))
-            ->add('leftComment');
-        //->end('Трансферы');
+            ->add('telephone');
     }
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -45,12 +39,7 @@ class StudentAdmin extends Admin
             ->add('sex', 'choice', array('choices' => array('М' => 'М', 'Ж' => 'Ж')))
             ->add('nationality', 'sonata_type_model')
             ->add('birthday', 'date', array('locale' => 'kg', 'timezone' => 'Asia/Bishkek'))
-            ->add('address')
-            ->add('telephone')
-            ->add('cameFrom', 'sonata_type_model', array('required' => false))
-            ->add('cameComment')
-            ->add('leftTo', 'sonata_type_model', array('required' => false))
-            ->add('leftComment');
+            ->add('address');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

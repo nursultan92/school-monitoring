@@ -2,10 +2,10 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="Application\SchoolBundle\Entity\Nationality" table="nationality">
-        <id name="id" type="integer" column="id">
+    <entity name="Application\SchoolBundle\Entity\TransferLocation" table="transfer_locations">
+        <id name="id" type="integer" column="id" length="3">
             <generator strategy="AUTO"/>
         </id>
-        <field name="name" type="string" column="name" length="50"/>
+        <field name="place" type="string" column="place" length="50"/>
     </entity>
 </doctrine-mapping>

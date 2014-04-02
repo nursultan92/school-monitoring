@@ -36,7 +36,7 @@ class Personal
     {
         $this->classgroups = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Set firstname
      *
@@ -46,14 +46,14 @@ class Personal
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-    
+
         return $this;
     }
 
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -69,14 +69,14 @@ class Personal
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-    
+
         return $this;
     }
 
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -86,7 +86,7 @@ class Personal
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -102,7 +102,7 @@ class Personal
     public function addClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroups)
     {
         $this->classgroups[] = $classgroups;
-    
+
         return $this;
     }
 
@@ -119,7 +119,7 @@ class Personal
     /**
      * Get classgroups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getClassgroups()
     {

@@ -25,11 +25,6 @@ class ClassGroup
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $students;
-
-    /**
      * @var \Application\SchoolBundle\Entity\Personal
      */
     private $personal;
@@ -41,7 +36,7 @@ class ClassGroup
     {
         $this->students = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Set grade
      *
@@ -51,14 +46,14 @@ class ClassGroup
     public function setGrade($grade)
     {
         $this->grade = $grade;
-    
+
         return $this;
     }
 
     /**
      * Get grade
      *
-     * @return integer 
+     * @return integer
      */
     public function getGrade()
     {
@@ -74,14 +69,14 @@ class ClassGroup
     public function setAlphabet($alphabet)
     {
         $this->alphabet = $alphabet;
-    
+
         return $this;
     }
 
     /**
      * Get alphabet
      *
-     * @return string 
+     * @return string
      */
     public function getAlphabet()
     {
@@ -91,12 +86,46 @@ class ClassGroup
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
+
+    /**
+     * Set personal
+     *
+     * @param \Application\SchoolBundle\Entity\Personal $personal
+     * @return ClassGroup
+     */
+    public function setPersonal(\Application\SchoolBundle\Entity\Personal $personal = null)
+    {
+        $this->personal = $personal;
+
+        return $this;
+    }
+
+    /**
+     * Get personal
+     *
+     * @return \Application\SchoolBundle\Entity\Personal
+     */
+    public function getPersonal()
+    {
+        return $this->personal;
+    }
+
+    public function __toString()
+    {
+        return $this->getGrade() . '-' . $this->getAlphabet();
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $students;
+
 
     /**
      * Add students
@@ -107,7 +136,7 @@ class ClassGroup
     public function addStudent(\Application\SchoolBundle\Entity\Student $students)
     {
         $this->students[] = $students;
-    
+
         return $this;
     }
 
@@ -124,38 +153,10 @@ class ClassGroup
     /**
      * Get students
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStudents()
     {
         return $this->students;
-    }
-
-    /**
-     * Set personal
-     *
-     * @param \Application\SchoolBundle\Entity\Personal $personal
-     * @return ClassGroup
-     */
-    public function setPersonal(\Application\SchoolBundle\Entity\Personal $personal = null)
-    {
-        $this->personal = $personal;
-    
-        return $this;
-    }
-
-    /**
-     * Get personal
-     *
-     * @return \Application\SchoolBundle\Entity\Personal 
-     */
-    public function getPersonal()
-    {
-        return $this->personal;
-    }
-
-    public function __toString()
-    {
-        return $this->getGrade() . '-'.  $this->getAlphabet();
     }
 }
