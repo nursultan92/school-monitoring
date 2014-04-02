@@ -8,3 +8,11 @@ school_classgroup_list:
 school_classgroup_get:
     pattern:  /classgroups/{id}
     defaults: { _controller: ApplicationSchoolBundle:ClassGroup:get }
+
+school_academicyear_list:
+    pattern:  /academicyears
+    defaults: { _controller: ApplicationSchoolBundle:AcademiYear:list }
+
+school_report_index:
+    pattern:  /report/index
+    defaults: { _controller: ApplicationSchoolBundle:Report:index }

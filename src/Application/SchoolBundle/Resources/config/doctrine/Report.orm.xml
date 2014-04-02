@@ -2,12 +2,11 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="Application\SchoolBundle\Entity\Personal" table="personal">
+    <entity name="Application\SchoolBundle\Entity\Report">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
-        <field name="firstname" type="string" column="firstname" length="50"/>
-        <field name="lastname" type="string" column="lastname" length="50"/>
-        <one-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" mapped-by="personal" field="classgroup"/>
+        <field name="report" type="smallint" column="report"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\AcademicYear" field="academicYear"/>
     </entity>
 </doctrine-mapping>

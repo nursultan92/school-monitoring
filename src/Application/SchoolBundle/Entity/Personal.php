@@ -20,6 +20,11 @@ class Personal
     private $lastname;
 
     /**
+     * @var \Application\SchoolBundle\Entity\ClassGroup
+     */
+    private $classgroup;
+
+    /**
      * @var integer
      */
     private $id;
@@ -79,6 +84,29 @@ class Personal
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set classgroup
+     *
+     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroup
+     * @return Personal
+     */
+    public function setClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroup = null)
+    {
+        $this->classgroup = $classgroup;
+
+        return $this;
+    }
+
+    /**
+     * Get classgroup
+     *
+     * @return \Application\SchoolBundle\Entity\ClassGroup
+     */
+    public function getClassgroup()
+    {
+        return $this->classgroup;
     }
 
     public function __toString()
