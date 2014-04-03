@@ -27,7 +27,8 @@ class StudentAdmin extends Admin
             ->add('nationality', 'sonata_type_model')
             ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date('Y') - 14, date('Y'))))
             ->add('address')
-            ->add('telephone');
+            ->add('telephone')
+            ->add('transfer', 'sonata_type_admin');
     }
     protected function configureListFields(ListMapper $listMapper)
     {

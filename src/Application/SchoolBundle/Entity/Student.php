@@ -276,4 +276,33 @@ class Student
     {
         return $this->nationality;
     }
+
+    /**
+     * @var \Application\SchoolBundle\Entity\Transfer
+     */
+    private $transfer;
+
+
+    /**
+     * Set transfer
+     *
+     * @param \Application\SchoolBundle\Entity\Transfer $transfer
+     * @return Student
+     */
+    public function setTransfer(\Application\SchoolBundle\Entity\Transfer $transfer = null)
+    {
+        $this->transfer = $transfer;
+
+        return $this;
+    }
+
+    /**
+     * Get transfer
+     *
+     * @return \Application\SchoolBundle\Entity\Transfer
+     */
+    public function getTransfer()
+    {
+        return $this->transfer;
+    }
 }
