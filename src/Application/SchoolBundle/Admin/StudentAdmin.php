@@ -17,6 +17,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 class StudentAdmin extends Admin
 {
 
+    protected $supportsPreviewMode = true;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('firstname')
@@ -28,7 +30,7 @@ class StudentAdmin extends Admin
             ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date('Y') - 14, date('Y'))))
             ->add('address')
             ->add('telephone')
-            ->add('transfer', 'sonata_type_admin');
+            ->add('transfer', 'sonata_type_admin', array('delete' => false, 'btn_add' => false));
     }
     protected function configureListFields(ListMapper $listMapper)
     {
