@@ -17,6 +17,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 class StudentAdmin extends Admin
 {
 
+    protected $supportsPreviewMode = true;
+
+    protected $maxPerPage = 50;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('firstname')
@@ -28,12 +32,7 @@ class StudentAdmin extends Admin
             ->add('birthday', 'date', array('widget' => 'choice', 'years' => range(date("Y") - 20, date("Y") - 5)))
             ->add('address')
             ->add('telephone')
-            //->with('Трансферы',array('expanded'=>true))
-            ->add('cameFrom', 'sonata_type_model', array('required' => false))
-            ->add('cameComment')
-            ->add('leftTo', 'sonata_type_model', array('required' => false))
-            ->add('leftComment');
-        //->end('Трансферы');
+            ->add('transfer', 'sonata_type_admin', array('delete' => false, 'btn_add' => false));
     }
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -46,11 +45,8 @@ class StudentAdmin extends Admin
             ->add('nationality', 'sonata_type_model')
             ->add('birthday', 'date', array('locale' => 'kg', 'timezone' => 'Asia/Bishkek'))
             ->add('address')
-            ->add('telephone')
-            ->add('cameFrom', 'sonata_type_model', array('required' => false))
-            ->add('cameComment')
-            ->add('leftTo', 'sonata_type_model', array('required' => false))
-            ->add('leftComment');
+            ->add('transfer.moved')
+            ->add('transfer.place');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

@@ -6,11 +6,13 @@ Came From:        Прибыл
 Class Group List: Список классов
 Classgroup:       Класс
 Classgroups:      Классный руководитель
+Date:             Число
 Firstname:        Имя
 Grade:            Класс
 Lastname:         Фамилия
 Left Comment:     Комментарий
 Left To:          Выбыл
+Moved:            Выбыл(Прибыл)
 Nationality:      Национальность
 Nationality List: Список Национальностей
 Personal:         Классный руководитель
@@ -20,5 +22,8 @@ Place:            Место
 Sex:              Пол
 Student List:     Список Учеников
 Telephone:        Телефон
-Transfer List:    Список трансферов
+Transfer Location List:    Список трансферов
+Transfer Moved:   Выбыл(Прибыл)
+Transfer Place:   Куда(Откуда)
+Year:             Учебный год
 

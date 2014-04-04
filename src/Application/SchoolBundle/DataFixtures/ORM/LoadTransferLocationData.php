@@ -10,7 +10,7 @@
 namespace Application\SchoolBundle\DataFixture\ORM;
 
 
-use Application\SchoolBundle\Entity\Transfer;
+use Application\SchoolBundle\Entity\TransferLocation;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -27,7 +27,7 @@ class LoadTransferData extends AbstractFixture implements OrderedFixtureInterfac
         $places = array("Район","Город","Республика","СНГ","Дальнее зарубежье","Внутри школы","Работали","1 класс","Другие причины");
         $counter = 0;
         foreach($places as $place){
-            $transfer = new Transfer();
+            $transfer = new TransferLocation();
             $transfer->setPlace($place);
             $manager->persist($transfer);
             $manager->flush();

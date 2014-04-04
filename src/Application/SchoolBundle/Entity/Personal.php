@@ -20,23 +20,16 @@ class Personal
     private $lastname;
 
     /**
+     * @var \Application\SchoolBundle\Entity\ClassGroup
+     */
+    private $classgroup;
+
+    /**
      * @var integer
      */
     private $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $classgroups;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->classgroups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Set firstname
      *
@@ -46,14 +39,14 @@ class Personal
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-    
+
         return $this;
     }
 
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -69,14 +62,14 @@ class Personal
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-    
+
         return $this;
     }
 
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -86,7 +79,7 @@ class Personal
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -94,36 +87,26 @@ class Personal
     }
 
     /**
-     * Add classgroups
+     * Set classgroup
      *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroups
+     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroup
      * @return Personal
      */
-    public function addClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroups)
+    public function setClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroup = null)
     {
-        $this->classgroups[] = $classgroups;
-    
+        $this->classgroup = $classgroup;
+
         return $this;
     }
 
     /**
-     * Remove classgroups
+     * Get classgroup
      *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroups
+     * @return \Application\SchoolBundle\Entity\ClassGroup
      */
-    public function removeClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroups)
+    public function getClassgroup()
     {
-        $this->classgroups->removeElement($classgroups);
-    }
-
-    /**
-     * Get classgroups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getClassgroups()
-    {
-        return $this->classgroups;
+        return $this->classgroup;
     }
 
     public function __toString()

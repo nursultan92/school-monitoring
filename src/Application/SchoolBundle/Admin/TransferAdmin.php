@@ -1,22 +1,37 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Almaz
- * Date: 20.11.13
- * Time: 22:51
+ * User: Admin
+ * Date: 03.04.14
+ * Time: 10:28
  */
 
 namespace Application\SchoolBundle\Admin;
+
+
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class TransferAdmin  extends Admin{
+class TransferAdmin extends Admin
+{
 
-    protected function configureFormFields(FormMapper $formMapper){
-        $formMapper->add('place');
+    public function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->add('date', 'date', array('years' => range(date('Y') - 3, date('Y'))))
+            ->add('moved', 'choice', array(
+                'choices' => array('Выбыл' => 'Выбыл', 'Прибыл' => 'Прибыл'),
+                'required' => false
+            ))
+            ->add('place', null);
     }
-    protected function configureListFields(ListMapper $listMapper){
-        $listMapper->addIdentifier('place');
+
+    public function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->add('moved')
+            ->add('place')
+            ->add('transferLocation');
     }
 } 

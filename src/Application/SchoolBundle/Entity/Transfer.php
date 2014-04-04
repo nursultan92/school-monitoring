@@ -10,34 +10,31 @@ use Doctrine\ORM\Mapping as ORM;
 class Transfer
 {
     /**
-     * @var string
-     */
-    private $place;
-
-    /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      */
-    private $studentCame;
+    private $place;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      */
-    private $studentLeft;
+    private $moved;
+
 
     /**
-     * Constructor
+     * Get id
+     *
+     * @return integer
      */
-    public function __construct()
+    public function getId()
     {
-        $this->studentCame = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->studentLeft = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
-    
+
     /**
      * Set place
      *
@@ -47,14 +44,14 @@ class Transfer
     public function setPlace($place)
     {
         $this->place = $place;
-    
+
         return $this;
     }
 
     /**
      * Get place
      *
-     * @return string 
+     * @return string
      */
     public function getPlace()
     {
@@ -62,83 +59,83 @@ class Transfer
     }
 
     /**
-     * Get id
+     * Set moved
      *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Add studentCame
-     *
-     * @param \Application\SchoolBundle\Entity\Student $studentCame
+     * @param string $moved
      * @return Transfer
      */
-    public function addStudentCame(\Application\SchoolBundle\Entity\Student $studentCame)
+    public function setMoved($moved)
     {
-        $this->studentCame[] = $studentCame;
-    
+        $this->moved = $moved;
+
         return $this;
     }
 
     /**
-     * Remove studentCame
+     * Get moved
      *
-     * @param \Application\SchoolBundle\Entity\Student $studentCame
+     * @return string
      */
-    public function removeStudentCame(\Application\SchoolBundle\Entity\Student $studentCame)
+    public function getMoved()
     {
-        $this->studentCame->removeElement($studentCame);
+        return $this->moved;
     }
 
     /**
-     * Get studentCame
-     *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @var \Application\SchoolBundle\Entity\TransferLocation
      */
-    public function getStudentCame()
-    {
-        return $this->studentCame;
-    }
+    private $transferLocation;
+
 
     /**
-     * Add studentLeft
+     * Set transferLocation
      *
-     * @param \Application\SchoolBundle\Entity\Student $studentLeft
+     * @param \Application\SchoolBundle\Entity\TransferLocation $transferLocation
      * @return Transfer
      */
-    public function addStudentLeft(\Application\SchoolBundle\Entity\Student $studentLeft)
+    public function setTransferLocation(\Application\SchoolBundle\Entity\TransferLocation $transferLocation = null)
     {
-        $this->studentLeft[] = $studentLeft;
-    
+        $this->transferLocation = $transferLocation;
+
         return $this;
     }
 
     /**
-     * Remove studentLeft
+     * Get transferLocation
      *
-     * @param \Application\SchoolBundle\Entity\Student $studentLeft
+     * @return \Application\SchoolBundle\Entity\TransferLocation
      */
-    public function removeStudentLeft(\Application\SchoolBundle\Entity\Student $studentLeft)
+    public function getTransferLocation()
     {
-        $this->studentLeft->removeElement($studentLeft);
+        return $this->transferLocation;
     }
 
     /**
-     * Get studentLeft
-     *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @var \DateTime
      */
-    public function getStudentLeft()
+    private $date;
+
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Transfer
+     */
+    public function setDate($date)
     {
-        return $this->studentLeft;
+        $this->date = $date;
+
+        return $this;
     }
 
-    public function __toString()
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
     {
-        return ($this->getPlace()) ? $this->getPlace() : 'Новый трансфер';
+        return $this->date;
     }
 }

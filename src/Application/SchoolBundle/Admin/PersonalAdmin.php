@@ -19,7 +19,7 @@ class PersonalAdmin extends Admin
     {
         $formMapper->add('firstname');
         $formMapper->add('lastname');
-        $formMapper->add('classgroups');
+        $formMapper->add('classgroup');
 
     }
 
@@ -27,6 +27,6 @@ class PersonalAdmin extends Admin
     {
         $listMapper->addIdentifier('firstname')
             ->addIdentifier('lastname')
-            ->add('classgroups');
+            ->add('classgroup');
     }
 } 
