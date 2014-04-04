@@ -19,6 +19,8 @@ class StudentAdmin extends Admin
 
     protected $supportsPreviewMode = true;
 
+    protected $maxPerPage = 50;
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('firstname')
@@ -42,7 +44,9 @@ class StudentAdmin extends Admin
             ->add('sex', 'choice', array('choices' => array('М' => 'М', 'Ж' => 'Ж')))
             ->add('nationality', 'sonata_type_model')
             ->add('birthday', 'date', array('locale' => 'kg', 'timezone' => 'Asia/Bishkek'))
-            ->add('address');
+            ->add('address')
+            ->add('transfer.moved')
+            ->add('transfer.place');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

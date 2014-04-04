@@ -13,6 +13,10 @@ school_academicyear_list:
     pattern:  /academicyears
     defaults: { _controller: ApplicationSchoolBundle:AcademiYear:list }
 
+school_academicyear_get:
+    pattern: /academicyears/
+    defaults: { _controller: ApplicationSchoolBundle:AcademiYear:get }
+
 school_report_index:
     pattern:  /report/index
     defaults: { _controller: ApplicationSchoolBundle:Report:index }

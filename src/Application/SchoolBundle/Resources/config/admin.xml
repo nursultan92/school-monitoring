@@ -60,5 +60,14 @@
                 <argument>ApplicationSchoolBundle</argument>
             </call>
         </service>
+        <service id="sonata.admin.academicyear" class="Application\SchoolBundle\Admin\AcademicYearAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Дополнительно" label="Учебный год"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\AcademicYear</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
     </services>
 </container>

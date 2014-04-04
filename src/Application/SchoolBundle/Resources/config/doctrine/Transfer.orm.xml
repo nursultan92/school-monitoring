@@ -7,7 +7,7 @@
             <generator strategy="AUTO"/>
         </id>
         <field name="place" type="string" column="place" length="70"/>
-        <field name="moved" type="string" column="moved" length="4"/>
+        <field name="moved" type="string" column="moved" length="10" nullable="true"/>
         <many-to-one target-entity="Application\SchoolBundle\Entity\TransferLocation" field="transferLocation"/>
     </entity>
 </doctrine-mapping>

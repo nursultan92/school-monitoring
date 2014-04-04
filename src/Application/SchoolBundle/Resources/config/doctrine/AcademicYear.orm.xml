@@ -7,5 +7,6 @@
             <generator strategy="AUTO"/>
         </id>
         <field name="year" type="string" column="year" length="12"/>
+        <one-to-many target-entity="Application\SchoolBundle\Entity\Report" mapped-by="academicYear" field="reports"/>
     </entity>
 </doctrine-mapping>

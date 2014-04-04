@@ -12,13 +12,41 @@ class Report
     /**
      * @var integer
      */
-    private $id;
+    private $quarter;
 
     /**
      * @var integer
      */
-    private $report;
+    private $id;
 
+    /**
+     * @var \Application\SchoolBundle\Entity\AcademicYear
+     */
+    private $academicYear;
+
+
+    /**
+     * Set quarter
+     *
+     * @param integer $quarter
+     * @return Report
+     */
+    public function setQuarter($quarter)
+    {
+        $this->quarter = $quarter;
+
+        return $this;
+    }
+
+    /**
+     * Get quarter
+     *
+     * @return integer
+     */
+    public function getQuarter()
+    {
+        return $this->quarter;
+    }
 
     /**
      * Get id
@@ -29,35 +57,6 @@ class Report
     {
         return $this->id;
     }
-
-    /**
-     * Set report
-     *
-     * @param integer $report
-     * @return Report
-     */
-    public function setReport($report)
-    {
-        $this->report = $report;
-
-        return $this;
-    }
-
-    /**
-     * Get report
-     *
-     * @return integer
-     */
-    public function getReport()
-    {
-        return $this->report;
-    }
-
-    /**
-     * @var \Application\SchoolBundle\Entity\AcademicYear
-     */
-    private $academicYear;
-
 
     /**
      * Set academicYear
@@ -80,5 +79,34 @@ class Report
     public function getAcademicYear()
     {
         return $this->academicYear;
+    }
+
+    /**
+     * @var \Application\SchoolBundle\Entity\ClassGroup
+     */
+    private $classGroup;
+
+
+    /**
+     * Set classGroup
+     *
+     * @param \Application\SchoolBundle\Entity\ClassGroup $classGroup
+     * @return Report
+     */
+    public function setClassGroup(\Application\SchoolBundle\Entity\ClassGroup $classGroup = null)
+    {
+        $this->classGroup = $classGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get classGroup
+     *
+     * @return \Application\SchoolBundle\Entity\ClassGroup
+     */
+    public function getClassGroup()
+    {
+        return $this->classGroup;
     }
 }

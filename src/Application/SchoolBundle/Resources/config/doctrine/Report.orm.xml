@@ -6,7 +6,9 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
-        <field name="report" type="smallint" column="report"/>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\AcademicYear" field="academicYear"/>
+        <field name="quarter" type="smallint" column="quarter"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\AcademicYear" field="academicYear"
+                     inversed-by="reports"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" field="classGroup"/>
     </entity>
 </doctrine-mapping>
