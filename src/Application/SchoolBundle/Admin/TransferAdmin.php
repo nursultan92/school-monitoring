@@ -19,12 +19,17 @@ class TransferAdmin extends Admin
     public function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('date', 'date', array('years' => range(date('Y') - 3, date('Y'))))
-            ->add('moved', 'choice', array(
-                'choices' => array('Выбыл' => 'Выбыл', 'Прибыл' => 'Прибыл'),
-                'required' => false
-            ))
-            ->add('place', null);
+            ->add('transferLocation')
+            ->add(
+                'moved',
+                'choice',
+                array(
+                    'choices' => array('Выбыл' => 'Выбыл', 'Прибыл' => 'Прибыл'),
+                    'required' => false
+                )
+            )
+            ->add('place', null)
+            ->add('date', 'date', array('years' => range(date('Y') - 3, date('Y')), 'required' => false));
     }
 
     public function configureListFields(ListMapper $listMapper)

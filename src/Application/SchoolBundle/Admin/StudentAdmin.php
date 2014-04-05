@@ -43,7 +43,7 @@ class StudentAdmin extends Admin
             ->add('personalNumber')
             ->add('sex', 'choice', array('choices' => array('М' => 'М', 'Ж' => 'Ж')))
             ->add('nationality', 'sonata_type_model')
-            ->add('birthday', 'date', array('locale' => 'kg', 'timezone' => 'Asia/Bishkek'))
+            ->add('birthday', 'date')
             ->add('address')
             ->add('transfer.moved')
             ->add('transfer.place');
@@ -52,6 +52,6 @@ class StudentAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('classgroup')
-                        ->add('nationality');
+            ->add('nationality');
     }
 } 

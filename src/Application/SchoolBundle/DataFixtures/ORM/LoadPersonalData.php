@@ -15,7 +15,8 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterface {
+class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterface
+{
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -24,15 +25,15 @@ class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function load(ObjectManager $manager)
     {
-        $teachers = array(array('Памир ','Каразаков'),array('Чынара','Жумабаева'),array('Айбек','Аданбаев'));
+        $teachers = array(array('Памир ', 'Каразаков'), array('Чынара', 'Жумабаева'), array('Айбек', 'Аданбаев'));
         $counter = 0;
-        foreach($teachers as $t){
+        foreach ($teachers as $t) {
             $teacher = new Personal();
             $teacher->setFirstname($t[0]);
             $teacher->setLastname($t[1]);
             $manager->persist($teacher);
             $manager->flush();
-            $this->addReference('personal-'.$counter,$teacher);
+            $this->addReference('personal-' . $counter, $teacher);
             $counter++;
         }
     }

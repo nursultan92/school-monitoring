@@ -15,7 +15,8 @@ use Doctrine\Common\DataFixtures\Doctrine;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadUserData implements FixtureInterface {
+class LoadUserData implements FixtureInterface
+{
 
     /**
      * Load data fixtures with the passed EntityManager

@@ -22,7 +22,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
     {
 
         $student_information = array(
-            array('firstname' => 'Азамат',
+            array(
+                'firstname' => 'Азамат',
                 "lastname" => 'Курманбеков',
                 'personal_number' => 'А-342',
                 'sex' => 'М',
@@ -32,7 +33,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
             ),
-            array('firstname' => 'Айкерим',
+            array(
+                'firstname' => 'Айкерим',
                 "lastname" => 'Муканбетова',
                 'personal_number' => 'Т-342',
                 'sex' => 'Ж',
@@ -42,7 +44,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-1')
             ),
-            array('firstname' => 'Долон',
+            array(
+                'firstname' => 'Долон',
                 "lastname" => 'Аскарбеков',
                 'personal_number' => 'В-100',
                 'sex' => 'М',
@@ -52,7 +55,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-1'),
                 'nationality' => $this->getReference('nationality-0')
             ),
-            array('firstname' => 'Алмаз',
+            array(
+                'firstname' => 'Алмаз',
                 "lastname" => 'Таиров',
                 'personal_number' => 'К-123',
                 'sex' => 'М',
@@ -62,7 +66,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
             ),
-            array('firstname' => 'Алтын',
+            array(
+                'firstname' => 'Алтын',
                 "lastname" => 'Рахманов',
                 'personal_number' => 'П-302',
                 'sex' => 'М',
@@ -72,7 +77,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-1')
             ),
-            array('firstname' => 'Тынчтыкбек',
+            array(
+                'firstname' => 'Тынчтыкбек',
                 "lastname" => 'Ералиев',
                 'personal_number' => 'Р-200',
                 'sex' => 'М',
@@ -82,7 +88,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-2')
             ),
-            array('firstname' => 'Таалай',
+            array(
+                'firstname' => 'Таалай',
                 "lastname" => 'Оморов',
                 'personal_number' => 'Ц-100',
                 'sex' => 'М',
@@ -92,7 +99,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
             ),
-            array('firstname' => 'Айбек',
+            array(
+                'firstname' => 'Айбек',
                 "lastname" => 'Сариев',
                 'personal_number' => 'Й-342',
                 'sex' => 'М',

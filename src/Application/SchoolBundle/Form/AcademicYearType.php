@@ -15,7 +15,11 @@ class AcademicYearType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year', 'entity', array('property' => 'year', 'class' => 'Application\SchoolBundle\Entity\AcademicYear', 'label' => 'Год'))
+            ->add(
+                'year',
+                'entity',
+                array('property' => 'year', 'class' => 'Application\SchoolBundle\Entity\AcademicYear', 'label' => 'Год')
+            )
             ->add('submit', 'submit', array('label' => 'Найти'));
     }
 
@@ -24,9 +28,11 @@ class AcademicYearType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Application\SchoolBundle\Entity\AcademicYear'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'Application\SchoolBundle\Entity\AcademicYear'
+            )
+        );
     }
 
     /**

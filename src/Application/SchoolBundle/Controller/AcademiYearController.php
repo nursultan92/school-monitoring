@@ -22,9 +22,16 @@ class AcademiYearController extends Controller
     {
         $academicYear = new AcademicYear();
 
-        $academicYearForm = $this->createForm(new AcademicYearType(), $academicYear, array('method' => 'POST', 'action' => $this->generateUrl('school_academicyear_get')));
+        $academicYearForm = $this->createForm(
+            new AcademicYearType(),
+            $academicYear,
+            array('method' => 'POST', 'action' => $this->generateUrl('school_academicyear_get'))
+        );
 
-        return $this->render('ApplicationSchoolBundle:AcademicYear:list.html.twig', array('form' => $academicYearForm->createView()));
+        return $this->render(
+            'ApplicationSchoolBundle:AcademicYear:list.html.twig',
+            array('form' => $academicYearForm->createView())
+        );
     }
 
     public function getAction()

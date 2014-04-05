@@ -15,7 +15,8 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadTransferData extends AbstractFixture implements OrderedFixtureInterface {
+class LoadTransferData extends AbstractFixture implements OrderedFixtureInterface
+{
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -24,14 +25,24 @@ class LoadTransferData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function load(ObjectManager $manager)
     {
-        $places = array("Район","Город","Республика","СНГ","Дальнее зарубежье","Внутри школы","Работали","1 класс","Другие причины");
+        $places = array(
+            "Район",
+            "Город",
+            "Республика",
+            "СНГ",
+            "Дальнее зарубежье",
+            "Внутри школы",
+            "Работали",
+            "1 класс",
+            "Другие причины"
+        );
         $counter = 0;
-        foreach($places as $place){
+        foreach ($places as $place) {
             $transfer = new TransferLocation();
             $transfer->setPlace($place);
             $manager->persist($transfer);
             $manager->flush();
-            $this->addReference('transfer-'.$counter,$transfer);
+            $this->addReference('transfer-' . $counter, $transfer);
             $counter++;
         }
     }

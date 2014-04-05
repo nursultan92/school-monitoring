@@ -15,7 +15,8 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadNationalityData extends AbstractFixture implements OrderedFixtureInterface {
+class LoadNationalityData extends AbstractFixture implements OrderedFixtureInterface
+{
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -24,14 +25,14 @@ class LoadNationalityData extends AbstractFixture implements OrderedFixtureInter
      */
     function load(ObjectManager $manager)
     {
-        $nationalities = array("Кыргыз","Тажик","Узбек","Дунган","Татар","Уйгур");
+        $nationalities = array("Кыргыз", "Тажик", "Узбек", "Дунган", "Татар", "Уйгур");
         $counter = 0;
-        foreach($nationalities as $nationality){
+        foreach ($nationalities as $nationality) {
             $nation = new Nationality();
             $nation->setName($nationality);
             $manager->persist($nation);
             $manager->flush();
-            $this->addReference('nationality-'.$counter,$nation);
+            $this->addReference('nationality-' . $counter, $nation);
             $counter++;
         }
     }
