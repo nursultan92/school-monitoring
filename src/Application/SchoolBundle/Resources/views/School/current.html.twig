@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Школа</th>
+        <th>Учебный год</th>
+        <th>Четверг</th>
+        <th>Директор</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ school.name }}</td>
+        <td>{{ school.academicYear }}</td>
+        <td>{{ school.currentQuarter }}</td>
+        <td>{{ school.principal.firstname }} {{ school.principal.lastname }}</td>
+    </tr>
+    </tbody>
+</table>

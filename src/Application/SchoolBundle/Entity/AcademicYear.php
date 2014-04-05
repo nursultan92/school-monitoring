@@ -98,4 +98,9 @@ class AcademicYear
     {
         return $this->reports;
     }
+
+    public function __toString()
+    {
+        return $this->getYear();
+    }
 }

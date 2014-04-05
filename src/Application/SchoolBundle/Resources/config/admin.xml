@@ -32,7 +32,7 @@
         </service>
 
         <service id="sonata.admin.classgroup" class="Application\SchoolBundle\Admin\ClassGroupAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="Классы" label="Класс"/>
+            <tag name="sonata.admin" manager_type="orm" group="Школа" label="Класс"/>
             <argument/>
             <argument>Application\SchoolBundle\Entity\ClassGroup</argument>
             <argument/>
@@ -60,9 +60,27 @@
             </call>
         </service>
         <service id="sonata.admin.academicyear" class="Application\SchoolBundle\Admin\AcademicYearAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="Дополнительно" label="Учебный год"/>
+            <tag name="sonata.admin" manager_type="orm" group="Школа" label="Учебный год"/>
             <argument/>
             <argument>Application\SchoolBundle\Entity\AcademicYear</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+        <service id="sonata.admin.school" class="Application\SchoolBundle\Admin\SchoolAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Школа" label="Основные"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\School</argument>
+            <argument/>
+            <call method="setTranslationDomain">
+                <argument>ApplicationSchoolBundle</argument>
+            </call>
+        </service>
+        <service id="sonata.admin.quarter" class="Application\SchoolBundle\Admin\QuarterAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Школа" label="Четверг"/>
+            <argument/>
+            <argument>Application\SchoolBundle\Entity\Quarter</argument>
             <argument/>
             <call method="setTranslationDomain">
                 <argument>ApplicationSchoolBundle</argument>

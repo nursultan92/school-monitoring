@@ -8,7 +8,7 @@
         <link href="{{ asset('public/css/normalize.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('public/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('public/bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/css/main.css') }}">
+        <link href="{{ asset('public/css/main.css') }}" rel="stylesheet" type="text/css">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
@@ -27,7 +27,7 @@
             <li><a href="{{ path('school_main_index') }}" class="navbar-brand">На главную</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <li><a href="{{ path('sonata_user_admin_security_login') }}">Админ</a></li>
+            <li><a href="{{ path('sonata_admin_dashboard') }}">Админ</a></li>
         </ul>
     </nav>
 </header>
@@ -37,11 +37,12 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="{{ path('school_classgroup_list') }}">Список классов</a></li>
-                    <li><a href="{{ path('school_report_index') }}">Отчеты</a></li>
+                    <li><a href="{{ path('school_report_index') }}">История отчетов</a></li>
+                    <li><a href="{{ path('school_report_create') }}">Получить отчет</a></li>
                 </ul>
             </div>
-            <div class="col-sm-9 col-md-10">
-                <h1 class="page-header">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 ">
+            <h1 class="page-header">
                     {% block content_title %}
                         Панель
                     {% endblock %}

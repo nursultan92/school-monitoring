@@ -20,3 +20,7 @@ school_academicyear_get:
 school_report_index:
     pattern:  /report/index
     defaults: { _controller: ApplicationSchoolBundle:Report:index }
+
+school_report_create:
+    pattern: /report/create
+    defaults: { _controller: ApplicationSchoolBundle:Report:create }

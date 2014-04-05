@@ -15,7 +15,7 @@ use Doctrine\Common\DataFixtures\Doctrine;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AcademicYearData extends AbstractFixture implements OrderedFixtureInterface
+class LoadAcademicYearData extends AbstractFixture implements OrderedFixtureInterface
 {
 
 
@@ -23,12 +23,14 @@ class AcademicYearData extends AbstractFixture implements OrderedFixtureInterfac
     {
         $years = array('2010-2011', '2011-2012', '2012-2013', '2013-2014');
 
+        $i = 1;
         foreach ($years as $year) {
             $academicYear = new AcademicYear();
             $academicYear->setYear($year);
-
             $manager->persist($academicYear);
             $manager->flush();
+
+            $this->addReference('academicyear-' . $i++, $academicYear);
         }
     }
 

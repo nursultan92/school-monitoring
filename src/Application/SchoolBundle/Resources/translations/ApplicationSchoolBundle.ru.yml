@@ -1,3 +1,4 @@
+Academic Year:    Учебный год
 Address:          Адрес
 Alphabet:         Серия класса
 Birthday:         Дата рождения
@@ -6,6 +7,7 @@ Came From:        Прибыл
 Class Group List: Список классов
 Classgroup:       Класс
 Classgroups:      Классный руководитель
+Current Quarter:  Текущий четверг
 Date:             Число
 Firstname:        Имя
 Grade:            Класс
@@ -13,19 +15,22 @@ Lastname:         Фамилия
 Left Comment:     Комментарий
 Left To:          Выбыл
 Moved:            Выбыл(Прибыл)
+Name:             Название
 Nationality:      Национальность
 Nationality List: Список Национальностей
 Personal:         Классный руководитель
 Personal List:    Список учителей
 Personal Number:  № л.дела
 Place:            Место
+Principal:        Директор
 Sex:              Пол
 Student List:     Список Учеников
 Telephone:        Телефон
+Transfer:         Трансфер
+Transfer Location:  Куда(Откуда)
 Transfer Location List:    Список трансферов
 Transfer Moved:   Выбыл(Прибыл)
 Transfer Place:   Куда(Откуда)
 Year:             Учебный год
-Transfer Location:  Куда(Откуда)
-Transfer:         Трансфер
+
 

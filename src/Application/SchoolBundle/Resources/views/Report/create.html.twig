@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block content_title %}
+    Создать отчет
+{% endblock %}
+{% block content %}
+    <section>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <span class="text-danger">Если данные не правильны сначала исправьте пожалуйста</span>
+    </section>
+    {{ render(controller('ApplicationSchoolBundle:School:current')) }}
+{% endblock %}

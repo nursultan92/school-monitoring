@@ -2,13 +2,10 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="Application\SchoolBundle\Entity\Report">
+    <entity name="Application\SchoolBundle\Entity\Quarter">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\Quarter" field="quarter"/>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\AcademicYear" field="academicYear"
-                     inversed-by="reports"/>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" field="classGroup"/>
+        <field name="name" type="smallint" column="name"/>
     </entity>
 </doctrine-mapping>

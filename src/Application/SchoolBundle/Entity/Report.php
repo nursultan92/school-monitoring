@@ -9,10 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Report
 {
-    /**
-     * @var integer
-     */
-    private $quarter;
 
     /**
      * @var integer
@@ -23,30 +19,6 @@ class Report
      * @var \Application\SchoolBundle\Entity\AcademicYear
      */
     private $academicYear;
-
-
-    /**
-     * Set quarter
-     *
-     * @param integer $quarter
-     * @return Report
-     */
-    public function setQuarter($quarter)
-    {
-        $this->quarter = $quarter;
-
-        return $this;
-    }
-
-    /**
-     * Get quarter
-     *
-     * @return integer
-     */
-    public function getQuarter()
-    {
-        return $this->quarter;
-    }
 
     /**
      * Get id
@@ -108,5 +80,34 @@ class Report
     public function getClassGroup()
     {
         return $this->classGroup;
+    }
+
+    /**
+     * @var \Application\SchoolBundle\Entity\Quarter
+     */
+    private $quarter;
+
+
+    /**
+     * Set quarter
+     *
+     * @param \Application\SchoolBundle\Entity\Quarter $quarter
+     * @return Report
+     */
+    public function setQuarter(\Application\SchoolBundle\Entity\Quarter $quarter = null)
+    {
+        $this->quarter = $quarter;
+
+        return $this;
+    }
+
+    /**
+     * Get quarter
+     *
+     * @return \Application\SchoolBundle\Entity\Quarter
+     */
+    public function getQuarter()
+    {
+        return $this->quarter;
     }
 }

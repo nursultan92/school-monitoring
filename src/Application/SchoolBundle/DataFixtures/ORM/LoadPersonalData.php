@@ -33,8 +33,7 @@ class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterfac
             $teacher->setLastname($t[1]);
             $manager->persist($teacher);
             $manager->flush();
-            $this->addReference('personal-' . $counter, $teacher);
-            $counter++;
+            $this->addReference('personal-' . $counter++, $teacher);
         }
     }
 

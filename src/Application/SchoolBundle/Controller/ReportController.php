@@ -18,4 +18,9 @@ class ReportController extends Controller
     {
         return $this->render('ApplicationSchoolBundle:Report:index.html.twig');
     }
+
+    public function createAction()
+    {
+        return $this->render('ApplicationSchoolBundle:Report:create.html.twig');
+    }
 } 

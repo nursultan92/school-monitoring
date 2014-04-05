@@ -14,7 +14,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ClassGroupData extends AbstractFixture implements OrderedFixtureInterface
+class LoadClassGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
 
     /**
