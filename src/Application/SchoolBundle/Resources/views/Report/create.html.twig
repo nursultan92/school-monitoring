@@ -8,4 +8,10 @@
         <span class="text-danger">Если данные не правильны сначала исправьте пожалуйста</span>
     </section>
     {{ render(controller('ApplicationSchoolBundle:School:current')) }}
+    {{ render(controller('ApplicationSchoolBundle:ClassGroup:getForm')) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/js/classgroup.js') }}"></script>
 {% endblock %}

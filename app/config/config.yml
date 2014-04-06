@@ -68,6 +68,9 @@ doctrine:
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
                     ApplicationSchoolBundle: ~
+                dql:
+                  datetime_functions:
+                    YEAR: DoctrineExtensions\Query\Mysql\Year
 
 # Swiftmailer Configuration
 swiftmailer:

@@ -1,0 +1,7 @@
+<label>Серия:
+    <select>
+        {% for c in classGroups %}
+            <option value="{{ c.alphabet }}">{{ c.alphabet }}</option>
+        {% endfor %}
+    </select>
+</label>

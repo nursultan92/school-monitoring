@@ -1,0 +1,6 @@
+{% set students = classgroup.students %}
+{% for student in students %}
+    {{ student.firstname }}
+    {{ student.lastname }}
+    <br/>
+{% endfor %}
