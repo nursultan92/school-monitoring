@@ -138,4 +138,9 @@ class Transfer
     {
         return $this->date;
     }
+
+    public function __toString()
+    {
+        return $this->place;
+    }
 }

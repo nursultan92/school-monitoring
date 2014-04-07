@@ -18,7 +18,14 @@ class StudentRepository extends EntityRepository
     {
 
         return $this->getEntityManager()
-            ->createQuery("select year(st.birthday) as y,sum( case when (st.sex='М') then 1 else 0 end ) as male, sum(case when (st.sex='Ж') then 1 else 0 end) as female from ApplicationSchoolBundle:Student st join st.classgroup cg where cg = :g group by y order by y asc")->setParameter('g', $classGroup)
+            ->createQuery("select year(st.birthday) as y,sum( case when (st.sex='М') then 1 else 0 end ) as male, sum(case when (st.sex='Ж') then 1 else 0 end) as female, count(st.id) as total from ApplicationSchoolBundle:Student st join st.classgroup cg where cg = :g group by y order by y asc")->setParameter('g', $classGroup)
+            ->getResult();
+    }
+
+    public function byNationality(ClassGroup $classGroup)
+    {
+        return $this->getEntityManager()
+            ->createQuery("select n.name,sum( case when (st.sex='М') then 1 else 0 end ) as male, sum(case when (st.sex='Ж') then 1 else 0 end) as female, count(st.id) as total from ApplicationSchoolBundle:Student st join st.classgroup cg join st.nationality as n where cg = :g  group by n.name order by n.name asc")->setParameter('g', $classGroup)
             ->getResult();
     }
 

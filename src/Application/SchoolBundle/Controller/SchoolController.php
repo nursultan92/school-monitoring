@@ -16,6 +16,7 @@ class SchoolController extends Controller
 
     public function currentAction()
     {
+        //TODO: get default school.
         $school = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:School')->findAll();
 
         return $this->render('ApplicationSchoolBundle:School:current.html.twig', array('school' => $school[0]));

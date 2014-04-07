@@ -12,6 +12,7 @@ namespace Application\SchoolBundle\Controller;
 use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ReportController extends Controller
 {
@@ -31,15 +32,20 @@ class ReportController extends Controller
         $em = $this->getDoctrine()->getManager();
         $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findOneBy(array('grade' => $grade, 'alphabet' => $alphabet));
 
+        //TODO: Should select default school
+        $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll();
+
         if (!$classGroup) {
             throw new EntityNotFoundException();
         }
 
-        //TODO: Render Report by Year.
         $byYear = $em->getRepository('ApplicationSchoolBundle:Student')->byYear($classGroup);
 
-        die(var_dump($byYear));
+        $byNationality = $em->getRepository('ApplicationSchoolBundle:Student')->byNationality($classGroup);
 
-        return $this->render('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup));
+
+        $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school[0], 'byNationality' => $byNationality));
+
+        return new JsonResponse($html);
     }
 } 

@@ -18,7 +18,7 @@ class ClassGroupType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('grade', 'entity', array('class' => 'Application\SchoolBundle\Entity\ClassGroup', 'property' => 'grade'));
+        $builder->add('grade', 'entity', array('class' => 'Application\SchoolBundle\Entity\ClassGroup', 'property' => 'grade', 'translation_domain' => 'ApplicationSchoolBundle'));
     }
 
 

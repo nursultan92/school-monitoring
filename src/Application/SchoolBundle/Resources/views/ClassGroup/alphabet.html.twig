@@ -1,7 +1,11 @@
-<label>Серия:
-    <select>
-        {% for c in classGroups %}
+<div class="form-group alphabet">
+    <label for="alphabet">Серия</label>
+    <select class="form-control" id="alphabet">
+    {% for c in classGroups %}
             <option value="{{ c.alphabet }}">{{ c.alphabet }}</option>
         {% endfor %}
     </select>
-</label>
+</div>
+<div class="form-group alphabet">
+    <input type="button" class="form-control btn btn-success btn-report" value="Получить отчет">
+</div>

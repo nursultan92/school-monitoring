@@ -3,12 +3,21 @@
     Создать отчет
 {% endblock %}
 {% block content %}
-    <section>
-        <span class="glyphicon glyphicon-warning-sign"></span>
-        <span class="text-danger">Если данные не правильны сначала исправьте пожалуйста</span>
-    </section>
-    {{ render(controller('ApplicationSchoolBundle:School:current')) }}
-    {{ render(controller('ApplicationSchoolBundle:ClassGroup:getForm')) }}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <span class="glyphicon glyphicon-warning-sign"></span>
+                <span class="text-danger">Если данные не правильны сначала исправьте пожалуйста</span>
+            </section>
+            {{ render(controller('ApplicationSchoolBundle:School:current')) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">{{ render(controller('ApplicationSchoolBundle:ClassGroup:getForm')) }}</div>
+        <div class="clearfix"></div>
+        <div class="report row">
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}

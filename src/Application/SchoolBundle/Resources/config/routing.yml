@@ -12,6 +12,8 @@ school_classgroup_get:
 school_classgroup_alphabet:
     pattern: /classgroups/grade/{grade}
     defaults: { _controller: ApplicationSchoolBundle:ClassGroup:alphabet }
+    options:
+        expose:  true
 
 school_academicyear_list:
     pattern:  /academicyears
