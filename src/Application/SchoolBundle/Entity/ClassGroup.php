@@ -159,4 +159,16 @@ class ClassGroup
     {
         return $this->students;
     }
+
+    public function getStudentsByEnd()
+    {
+        $count = 0;
+        foreach ($this->students as $student) {
+            if (is_object($student->getTransfer()) && $student->getTransfer()->getMoved() == 'Выбыл') {
+                $count++;
+            }
+        }
+
+        return $this->students->count() - $count;
+    }
 }
