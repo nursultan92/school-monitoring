@@ -9,7 +9,10 @@
 namespace Application\SchoolBundle\Controller;
 
 
+use Application\SchoolBundle\Entity\ClassGroup;
+use Application\SchoolBundle\Form\ClassGroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ClassGroupController extends Controller
 {
@@ -33,5 +36,22 @@ class ClassGroupController extends Controller
         $classGroup = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
 
         return $this->render('@ApplicationSchool/ClassGroup/get.html.twig', array('classgroup' => $classGroup));
+    }
+
+    public function getFormAction()
+    {
+        $classGroup = new ClassGroup();
+        $classForm = $this->createForm(new ClassGroupType(), $classGroup);
+
+        return $this->render('ApplicationSchoolBundle:ClassGroup:form.html.twig', array('classForm' => $classForm->createView()));
+    }
+
+    public function alphabetAction($grade)
+    {
+        $classGroups = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->findByGrade($grade);
+
+        $data = $this->renderView('ApplicationSchoolBundle:ClassGroup:alphabet.html.twig', array('classGroups' => $classGroups));
+
+        return new JsonResponse($data);
     }
 } 

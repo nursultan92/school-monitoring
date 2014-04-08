@@ -19,3 +19,13 @@
         border-right: 1px solid #eee;
     }
 }
+
+.content {
+    margin-top: 50px;
+}
+
+.report {
+    width: 8.3in;
+    padding: 0.5in 0.5in 0.5in 1in;
+    border: 1px solid #000000;
+}

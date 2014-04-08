@@ -9,6 +9,12 @@ school_classgroup_get:
     pattern:  /classgroups/{id}
     defaults: { _controller: ApplicationSchoolBundle:ClassGroup:get }
 
+school_classgroup_alphabet:
+    pattern: /classgroups/grade/{grade}
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:alphabet }
+    options:
+        expose:  true
+
 school_academicyear_list:
     pattern:  /academicyears
     defaults: { _controller: ApplicationSchoolBundle:AcademiYear:list }
@@ -24,3 +30,7 @@ school_report_index:
 school_report_create:
     pattern: /report/create
     defaults: { _controller: ApplicationSchoolBundle:Report:create }
+
+school_report_classgroup:
+    pattern:  /report/classgroup/{grade}/{alphabet}
+    defaults: { _controller: ApplicationSchoolBundle:Report:classGroup }
