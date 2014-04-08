@@ -171,4 +171,15 @@ class ClassGroup
 
         return $this->students->count() - $count;
     }
+
+    public function getGenderCount()
+    {
+        $count = array('m' => 0, 'f' => 0);
+        foreach ($this->students as $s) {
+            $count['m'] += ($s->getSex() === 'М');
+            $count['f'] += ($s->getSex() === 'Ж');
+        }
+
+        return $count;
+    }
 }

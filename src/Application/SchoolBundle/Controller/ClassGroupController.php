@@ -11,6 +11,7 @@ namespace Application\SchoolBundle\Controller;
 
 use Application\SchoolBundle\Entity\ClassGroup;
 use Application\SchoolBundle\Form\ClassGroupType;
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -51,6 +52,19 @@ class ClassGroupController extends Controller
         $classGroups = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->findByGrade($grade);
 
         $data = $this->renderView('ApplicationSchoolBundle:ClassGroup:alphabet.html.twig', array('classGroups' => $classGroups));
+
+        return new JsonResponse($data);
+    }
+
+    public function reportListAction($grade, $alphabet)
+    {
+        $classGroup = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->findOneBy(array('grade' => $grade, 'alphabet' => $alphabet));
+
+        if (!$classGroup) {
+            throw new EntityNotFoundException();
+        }
+
+        $data = $this->renderView('@ApplicationSchool/ClassGroup/report_list.html.twig', array('class' => $classGroup));
 
         return new JsonResponse($data);
     }

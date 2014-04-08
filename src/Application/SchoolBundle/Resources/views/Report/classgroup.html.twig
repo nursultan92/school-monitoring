@@ -1,14 +1,14 @@
     {% set students = classgroup.students %}
     <h2 class="text-center">Отчет</h2>
 
-    <p>Класс <strong>{{ classgroup.grade }} - {{ classgroup.alphabet }}</strong></p>
-    <p>кл. руководитель <strong>{{ classgroup.personal }}</strong></p>
+    <p>Класс <strong>{{ classgroup.grade }} "{{ classgroup.alphabet }}"</strong></p>
+    <p>Классный руководитель <strong>{{ classgroup.personal }}</strong></p>
 
     <p class="text-danger">На начало года (?) {#TODO: create column in table#}</p>
 
     <p class="text-danger">На начало четверти: (?){#TODO:   calculate#}</p>
 
-    <p>На конец четверти {{ classgroup.studentsByEnd }} :{#TODO: calculate#}</p>
+    <p>На конец четверти: <strong>{{ classgroup.studentsByEnd }}</strong></p>
 
     <p>Выбыло</p>
 
@@ -28,7 +28,7 @@
                 <td>
                     {{ student.firstname }} {{ student.lastname }}
                 </td>
-                <td>{{ student.transfer.date|date('Y-m-d') }}</td>
+                <td>{{ student.transfer.date|date('d-m-Y') }}</td>
                 <td>{{ student.transfer }}</td>
                 <td>{{ student.transfer.transferlocation }}</td>
             </tr>
@@ -55,7 +55,7 @@
                 <td>
                     {{ student.firstname }} {{ student.lastname }}
                 </td>
-                <td>{{ student.transfer.date|date('Y-m-d') }}</td>
+                <td>{{ student.transfer.date|date('d-m-Y') }}</td>
                 <td>{{ student.transfer }}</td>
                 <td>{{ student.transfer.transferlocation }}</td>
             </tr>

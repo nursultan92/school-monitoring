@@ -1,6 +1,6 @@
 $('#school_class_group_grade').on('change', function () {
-    var grade = $(this).find('option:selected').text();
-    var selectGrade = $(this).parent().parent();
+    var grade = $(this).find('option:selected').text(),
+        selectGrade = $(this).parent().parent();
     /*var url = Routing.generate('school_classgroup_alphabet',{grade: grade});*/
     $.ajax({
 
@@ -11,19 +11,20 @@ $('#school_class_group_grade').on('change', function () {
             $('.alphabet').remove();
             selectGrade.append(data);
         }
-    })
+    });
 });
 
 $('form').on('click', '.btn-report', function () {
     var grade = $('#school_class_group_grade').find('option:selected').text(),
-        alphabet = $('#alphabet').find('option:selected').text();
-
+        alphabet = $('#alphabet').find('option:selected').text(),
+        type = $('form').find('input[type="radio"]:checked').val(),
+        url = 'http://school/app_dev.php/report/classgroup/' + grade + '/' + alphabet + "/" + type;
     $.ajax({
-        url: 'http://school/app_dev.php/report/classgroup/' + grade + '/' + alphabet,
+        url: url,
         success: function (data) {
             $('.report').html(data);
         }
-    })
+    });
 });
 
 

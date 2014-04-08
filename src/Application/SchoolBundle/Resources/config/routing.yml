@@ -31,6 +31,10 @@ school_report_create:
     pattern: /report/create
     defaults: { _controller: ApplicationSchoolBundle:Report:create }
 
-school_report_classgroup:
-    pattern:  /report/classgroup/{grade}/{alphabet}
+classgroup_report_report:
+    pattern:  /report/classgroup/{grade}/{alphabet}/report
     defaults: { _controller: ApplicationSchoolBundle:Report:classGroup }
+
+classgroup_report_list:
+    pattern:  /report/classgroup/{grade}/{alphabet}/list
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:reportList }
