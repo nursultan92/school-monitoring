@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+{% block content_title %}
+    Выписка
+{% endblock %}
+{% block content %}
+    <div class="report">
+        <section>
+            <h3 class="text-center">ШКОЛА-{{ school.name|upper }}</h3>
+
+            <h3 class="text-center">Выписка</h3>
+
+            <p>"О переводе по школе"</p>
+
+            <p>"О прибывших и выбывших за 2 четверть"</p>
+        </section>
+        <p>Прибывшие за {{ school.currentQuarter }} четверть:</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Ф.И.О</th>
+                <th>Класс</th>
+                <th>{# KUDA#}</th>
+            </tr>
+            </thead>
+            {% for c in extractCame %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ c.lastname }} {{ c.firstname }}</td>
+                    <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                    <td>{{ c.transfer.place }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p>Выбывшие за {{ school.currentQuarter }} четверть:</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Ф.И.О</th>
+                <th>Класс</th>
+                <th>{# KUDA#}</th>
+            </tr>
+            </thead>
+            {% for c in extractLeft %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ c.lastname }} {{ c.firstname }}</td>
+                    <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                    <td>{{ c.transfer.place }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

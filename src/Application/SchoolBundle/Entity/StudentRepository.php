@@ -29,4 +29,12 @@ class StudentRepository extends EntityRepository
             ->getResult();
     }
 
+    public function extract($moved)
+    {
+        return $this->getEntityManager()->createQueryBuilder()->select('s')->from('Application\SchoolBundle\Entity\Student', 's')->join('s.transfer ', 't')->where('t.moved = :moved')->setParameter('moved', 'Прибыл')->getQuery()->getResult();
+        /*createQuery(
+            'select s.firstname, s.lastname,g.grade,g.alphabet,t.place,t.classGroup from ApplicationSchoolBundle:Student as s join s.transfer as t join s.classgroup as g where t.moved = :moved'
+        )->setParameter('moved',$moved)->getResult();*/
+
+    }
 } 

@@ -27,25 +27,5 @@ class ReportController extends Controller
         return $this->render('ApplicationSchoolBundle:Report:create.html.twig');
     }
 
-    public function classGroupAction($grade, $alphabet)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findOneBy(array('grade' => $grade, 'alphabet' => $alphabet));
 
-        //TODO: Should select default school
-        $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll();
-
-        if (!$classGroup) {
-            throw new EntityNotFoundException();
-        }
-
-        $byYear = $em->getRepository('ApplicationSchoolBundle:Student')->byYear($classGroup);
-
-        $byNationality = $em->getRepository('ApplicationSchoolBundle:Student')->byNationality($classGroup);
-
-
-        $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school[0], 'byNationality' => $byNationality));
-
-        return new JsonResponse($html);
-    }
 } 

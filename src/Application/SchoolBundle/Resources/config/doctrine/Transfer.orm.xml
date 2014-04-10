@@ -10,5 +10,6 @@
         <field name="moved" type="string" column="moved" length="10" nullable="true"/>
         <field name="date" type="date" column="date" nullable="true"/>
         <many-to-one target-entity="Application\SchoolBundle\Entity\TransferLocation" field="transferLocation"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" field="classGroup"/>
     </entity>
 </doctrine-mapping>

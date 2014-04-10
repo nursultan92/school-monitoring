@@ -182,4 +182,9 @@ class ClassGroup
 
         return $count;
     }
+
+    public function getFull()
+    {
+        return $this->getGrade() . '-' . $this->getAlphabet();
+    }
 }
