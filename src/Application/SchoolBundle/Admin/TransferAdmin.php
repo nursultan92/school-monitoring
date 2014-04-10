@@ -29,7 +29,8 @@ class TransferAdmin extends Admin
                 )
             )
             ->add('place', null)
-            ->add('date', 'date', array('years' => range(date('Y') - 3, date('Y')), 'required' => false));
+            ->add('date', 'date', array('years' => range(date('Y') - 1, date('Y')), 'required' => false))
+            ->add('classGroup', 'entity', array('class' => 'Application\SchoolBundle\Entity\ClassGroup', 'property' => 'full', 'required' => false));
     }
 
     public function configureListFields(ListMapper $listMapper)

@@ -26,6 +26,7 @@
 
 .report {
     width: 8.3in;
+    min-height: 11.7in;
     padding: 0.5in;
     border: 1px solid #000000;
     font-size: 11px;

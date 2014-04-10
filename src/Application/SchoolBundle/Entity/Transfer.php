@@ -141,6 +141,35 @@ class Transfer
 
     public function __toString()
     {
-        return $this->place;
+        return $this->place . '';
+    }
+
+    /**
+     * @var \Application\SchoolBundle\Entity\ClassGroup
+     */
+    private $classGroup;
+
+
+    /**
+     * Set classGroup
+     *
+     * @param \Application\SchoolBundle\Entity\ClassGroup $classGroup
+     * @return Transfer
+     */
+    public function setClassGroup(\Application\SchoolBundle\Entity\ClassGroup $classGroup = null)
+    {
+        $this->classGroup = $classGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get classGroup
+     *
+     * @return \Application\SchoolBundle\Entity\ClassGroup
+     */
+    public function getClassGroup()
+    {
+        return $this->classGroup;
     }
 }
