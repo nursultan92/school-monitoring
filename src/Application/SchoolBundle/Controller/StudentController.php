@@ -22,6 +22,7 @@ class StudentController extends Controller
         $extractCame = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Прибыл');
         $extractLeft = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Выбыл');
 
+
         /*xdebug_var_dump($extract);die();*/
         return $this->render('@ApplicationSchool/School/extract.html.twig', array('extractCame' => $extractCame, 'extractLeft' => $extractLeft, 'school' => $school));
     }

@@ -13,6 +13,7 @@
 
             <p>"О прибывших и выбывших за {{ school.currentQuarter }} четверть"</p>
         </section>
+        {#came#}
         <p>Прибывшие за {{ school.currentQuarter }} четверть:</p>
         <table class="table table-bordered">
             <thead>
@@ -24,33 +25,106 @@
             </tr>
             </thead>
             {% for c in extractCame %}
-                <tr>
+                {% if c.transfer.classGroup is null %}
+                    <tr>
                     <td>{{ loop.index }}</td>
                     <td>{{ c.lastname }} {{ c.firstname }}</td>
                     <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
                     <td>{{ c.transfer.place }}</td>
                 </tr>
+                {% endif %}
             {% endfor %}
         </table>
 
+        {#in school#}
+        <p>По школе:</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Ф.И.О</th>
+                <th>В</th>
+                <th>Из</th>
+            </tr>
+            </thead>
+            {% for c in extractCame %}
+                {% if c.transfer.classGroup is not null %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ c.lastname }} {{ c.firstname }}</td>
+                        <td>{{ c.transfer.classGroup }}</td>
+                        <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% for c in extractLeft %}
+                {% if c.transfer.classGroup is not null %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ c.lastname }} {{ c.firstname }}</td>
+                        <td>{{ c.transfer.classGroup }}</td>
+                        <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        {#end in school#}
+
+        {#end came#}
+        {#left#}
         <p>Выбывшие за {{ school.currentQuarter }} четверть:</p>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th>№</th>
                 <th>Ф.И.О</th>
-                <th>Класс</th>
-                <th>{# KUDA#}</th>
+                <th>Из</th>
+                <th>В</th>
             </tr>
             </thead>
             {% for c in extractLeft %}
-                <tr>
+                {% if c.transfer.classGroup is null %}
+                    <tr>
                     <td>{{ loop.index }}</td>
                     <td>{{ c.lastname }} {{ c.firstname }}</td>
                     <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
                     <td>{{ c.transfer.place }}</td>
                 </tr>
+                {% endif %}
             {% endfor %}
         </table>
+        {#in school#}
+        <p>По школе:</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Ф.И.О</th>
+                <th>Из</th>
+                <th>В</th>
+            </tr>
+            </thead>
+            {% for c in extractCame %}
+                {% if c.transfer.classGroup is not null %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ c.lastname }} {{ c.firstname }}</td>
+                        <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                        <td>{{ c.transfer.classGroup }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% for c in extractLeft %}
+                {% if c.transfer.classGroup is not null %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ c.lastname }} {{ c.firstname }}</td>
+                        <td>{{ c.classgroup.grade }} - {{ c.classgroup.alphabet }}</td>
+                        <td>{{ c.transfer.classGroup }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        {#end left#}
     </div>
 {% endblock %}

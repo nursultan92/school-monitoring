@@ -29,7 +29,7 @@
                     {{ student.firstname }} {{ student.lastname }}
                 </td>
                 <td>{{ student.transfer.date|date('d-m-Y') }}</td>
-                <td>{{ student.transfer }}</td>
+                <td>{{ student.transfer }} {{ student.transfer.classGroup }}</td>
                 <td>{{ student.transfer.transferlocation }}</td>
             </tr>
         {% endif %}
@@ -56,7 +56,7 @@
                     {{ student.firstname }} {{ student.lastname }}
                 </td>
                 <td>{{ student.transfer.date|date('d-m-Y') }}</td>
-                <td>{{ student.transfer }}</td>
+                <td>{{ student.transfer }} {{ student.transfer.classGroup }}</td>
                 <td>{{ student.transfer.transferlocation }}</td>
             </tr>
         {% endif %}

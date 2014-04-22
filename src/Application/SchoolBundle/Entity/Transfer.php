@@ -24,6 +24,10 @@ class Transfer
      */
     private $moved;
 
+    /**
+     * @var \DateTime
+     */
+    private $date;
 
     /**
      * Get id
@@ -109,11 +113,6 @@ class Transfer
     {
         return $this->transferLocation;
     }
-
-    /**
-     * @var \DateTime
-     */
-    private $date;
 
 
     /**
