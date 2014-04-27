@@ -17,13 +17,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadSchoolData extends AbstractFixture implements OrderedFixtureInterface
 {
-
-    function getOrder()
-    {
-        return 4;
-    }
-
-
     function load(ObjectManager $manager)
     {
         $school = new School();
@@ -37,5 +30,9 @@ class LoadSchoolData extends AbstractFixture implements OrderedFixtureInterface
 
     }
 
+    function getOrder()
+    {
+        return 3;
+    }
 
 } 

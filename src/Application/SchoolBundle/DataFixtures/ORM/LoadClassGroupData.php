@@ -24,19 +24,19 @@ class LoadClassGroupData extends AbstractFixture implements OrderedFixtureInterf
      */
     function load(ObjectManager $manager)
     {
-        $class_groups = array(array('A', 1), array('Б', 2), array('А', 11));
+        $alphabets = array('А', "Б");
         $counter = 0;
-        foreach ($class_groups as $class) {
-            $class_group = new ClassGroup();
-            $class_group->setAlphabet($class[0]);
-            $class_group->setGrade($class[1]);
-            $class_group->setPersonal($this->getReference('personal-' . $counter));
-            $manager->persist($class_group);
-            $manager->flush();
-            $this->setReference('class-group-' . $counter, $class_group);
-            $counter++;
-
-        }
+        for ($i = 1; $i < 12; $i++)
+            foreach ($alphabets as $alphabet) {
+                $group = new ClassGroup();
+                $group->setAlphabet($alphabet);
+                $group->setGrade($i);
+                $group->setPersonal($this->getReference('personal-' . $counter));
+                $manager->persist($group);
+                $manager->flush();
+                $this->setReference('class-group-' . $counter, $group);
+                $counter++;
+            }
     }
 
     /**
@@ -46,6 +46,6 @@ class LoadClassGroupData extends AbstractFixture implements OrderedFixtureInterf
      */
     function getOrder()
     {
-        return 4;
+        return 2;
     }
 }

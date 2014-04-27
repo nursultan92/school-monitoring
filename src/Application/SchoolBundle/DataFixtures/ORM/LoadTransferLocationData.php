@@ -54,6 +54,6 @@ class LoadTransferData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function getOrder()
     {
-        return 2;
+        return 1;
     }
 }

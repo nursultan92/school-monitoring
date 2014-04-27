@@ -17,7 +17,7 @@ class StudentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $school = $em->getRepository('ApplicationSchoolBundle:School')->find(1);
+        $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll()[0];
 
         $extractCame = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Прибыл');
         $extractLeft = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Выбыл');

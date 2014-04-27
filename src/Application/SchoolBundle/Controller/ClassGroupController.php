@@ -17,13 +17,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ClassGroupController extends Controller
 {
-    /*    private $em;
-
-        public function  __construct()
-        {
-            $this->em = $this->getDoctrine()->getManager();
-        }*/
-
 
     public function listAction()
     {

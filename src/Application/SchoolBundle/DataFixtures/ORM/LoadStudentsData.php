@@ -39,7 +39,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'Т-342',
                 'sex' => 'Ж',
                 'birthday' => new DateTime('1992-10-26'),
-                'address' => "Нарын",
+                'address' => "Бишкек",
                 "telephone" => '0550234310',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-1')
@@ -50,7 +50,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'В-100',
                 'sex' => 'М',
                 'birthday' => new DateTime('1992-10-21'),
-                'address' => "Нарын",
+                'address' => "Миң куш",
                 "telephone" => '0772102030',
                 'class' => $this->getReference('class-group-1'),
                 'nationality' => $this->getReference('nationality-0')
@@ -61,7 +61,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'К-123',
                 'sex' => 'М',
                 'birthday' => new DateTime('1993-11-12'),
-                'address' => "Нарын",
+                'address' => "Талас",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
@@ -72,7 +72,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'П-302',
                 'sex' => 'М',
                 'birthday' => new DateTime('1992-02-03'),
-                'address' => "Нарын",
+                'address' => "Баткен",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-1')
@@ -83,7 +83,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'Р-200',
                 'sex' => 'М',
                 'birthday' => new DateTime('1993-01-03'),
-                'address' => "Нарын",
+                'address' => "Исфана",
                 "telephone" => '0772302040',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-2')
@@ -94,7 +94,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'Ц-100',
                 'sex' => 'М',
                 'birthday' => new DateTime('1992-01-23'),
-                'address' => "Нарын",
+                'address' => "Кочкор",
                 "telephone" => '0543344434',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
@@ -105,7 +105,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'personal_number' => 'Й-342',
                 'sex' => 'М',
                 'birthday' => new DateTime('1997-05-23'),
-                'address' => "Нарын",
+                'address' => "Сузак",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
                 'nationality' => $this->getReference('nationality-0')
@@ -135,6 +135,6 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function getOrder()
     {
-        return 5;
+        return 3;
     }
 }

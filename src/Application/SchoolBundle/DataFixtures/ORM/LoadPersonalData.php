@@ -25,7 +25,31 @@ class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function load(ObjectManager $manager)
     {
-        $teachers = array(array('Памир ', 'Каразаков'), array('Чынара', 'Жумабаева'), array('Айбек', 'Аданбаев'));
+        $teachers = array(
+            array('Памир ', 'Каразаков'),
+            array('Чынара', 'Жумабаева'),
+            array('Айбек', 'Аданбаев'),
+            array('Асан', 'Өмүралиев'),
+            array('Касым', 'Барыктабасов'),
+            array('Бакыт', 'Шаршембаев'),
+            array('Самандар', 'Абдыласов'),
+            array('Абылас', 'Малдыбаев'),
+            array('Бейшен', 'Асаналиев'),
+            array('Алмаз', 'Джумабаев'),
+            array('Алтын', 'Рахманов'),
+            array('Алмазбек', 'Таиров'),
+            array('Азамат', 'Курманбеков'),
+            array('Медербек', 'Бактыбеков'),
+            array('Ыманали', 'Довутов'),
+            array('Тынчтыкбек', 'Эралиев'),
+            array('Асель', 'Эралиева'),
+            array('Аким', 'Болушбеков'),
+            array('Айкут', 'Конушбаев'),
+            array('Самаган', 'Алиев'),
+            array('Бектур', 'Садыков'),
+            array('Аскар', 'Кучкаров')
+
+        );
         $counter = 0;
         foreach ($teachers as $t) {
             $teacher = new Personal();
@@ -44,6 +68,6 @@ class LoadPersonalData extends AbstractFixture implements OrderedFixtureInterfac
      */
     function getOrder()
     {
-        return 3;
+        return 1;
     }
 }
