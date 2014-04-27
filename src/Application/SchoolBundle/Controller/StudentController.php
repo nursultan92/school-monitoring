@@ -22,8 +22,15 @@ class StudentController extends Controller
         $extractCame = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Прибыл');
         $extractLeft = $em->getRepository('ApplicationSchoolBundle:Student')->extract('Выбыл');
 
-
-        /*xdebug_var_dump($extract);die();*/
         return $this->render('@ApplicationSchool/School/extract.html.twig', array('extractCame' => $extractCame, 'extractLeft' => $extractLeft, 'school' => $school));
+    }
+
+    public function summerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $report = $em->getRepository("ApplicationSchoolBundle:Student")->wholeReport();
+
+        return $this->render("@ApplicationSchool/School/summer.html.twig", array('report' => $report));
     }
 }

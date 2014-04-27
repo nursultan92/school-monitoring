@@ -42,3 +42,7 @@ classgroup_report_list:
 student_extract:
     path: /report/extract
     defaults: { _controller:  ApplicationSchoolBundle:Student:extract }
+
+student_summer:
+    path: /report/whole
+    defaults: { _controller:  ApplicationSchoolBundle:Student:summer }

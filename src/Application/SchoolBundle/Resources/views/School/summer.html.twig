@@ -1,0 +1,78 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    <h4>Отчет</h4>
+    <p>О движении учащихся школы-лицея Первомайского района за лето 2011-2012 уч.г</p>
+    <table class="table table-bordered report wholeReport">
+        <thead>
+        <tr>
+            <th></th>
+            <th colspan="2"> Количество учащихся на конец</th>
+            <th colspan="10">Прибыло</th>
+            <th colspan="13">Выбыло</th>
+        </tr>
+        <tr class="rotate">
+            <th><span></span></th>
+            <th><span></span></th>
+            <th><span></span></th>
+
+            <th><span>Из школ района</span></th>
+            <th><span>Из школ города</span></th>
+            <th><span>Из республики</span></th>
+            <th><span>Из-за рубежа</span></th>
+            <th><span>Из СНГ</span></th>
+            <th><span>Внутри</span></th>
+            <th><span>Работали</span></th>
+            <th><span>1 класс</span></th>
+            <th><span>Другие причины</span></th>
+            <th><span>Всего</span></th>
+
+            <th><span>Из школ района</span></th>
+            <th><span>Из школ города</span></th>
+            <th><span>Из республики</span></th>
+            <th><span>Из-за рубежа</span></th>
+            <th><span>Из СНГ</span></th>
+            <th><span>Внутри</span></th>
+            <th><span>Работали</span></th>
+            <th><span>1 класс</span></th>
+            <th><span>Другие причины</span></th>
+            <th><span>Всего</span></th>
+            <th><span>Количество</span></th>
+            <th><span>Мальчики</span></th>
+            <th><span>Девочки</span></th>
+        </tr>
+        </thead>
+        {% for el in report %}
+            <tbody>
+            <tr>
+                <td></td>
+                <td>{{ el.grade }}</td>
+                <td>{{ el.amount }}</td>
+                <td>{{ el.prayon }}</td>
+                <td>{{ el.pgorod }}</td>
+                <td>{{ el.prespubliki }}</td>
+                <td>{{ el.prubej }}</td>
+                <td>{{ el.psng }}</td>
+                <td>{{ el.pvnutri }}</td>
+                <td>{{ el.prabotali }}</td>
+                <td>{{ el.pklass }}</td>
+                <td>{{ el.pdrugie }}</td>
+                <td>{{ el.pall }}</td>
+
+                <td>{{ el.vrayon }}</td>
+                <td>{{ el.vgorod }}</td>
+                <td>{{ el.vrespubliki }}</td>
+                <td>{{ el.vrubej }}</td>
+                <td>{{ el.vsng }}</td>
+                <td>{{ el.vvnutri }}</td>
+                <td>{{ el.vrabotali }}</td>
+                <td>{{ el.vklass }}</td>
+                <td>{{ el.vdrugie }}</td>
+                <td>{{ el.vall }}</td>
+                <td>{{ el.amount + el.pall - el.vall }}</td>
+                <td>{{ el.malchiki }}</td>
+                <td>{{ el.devochki }}</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .nav-sidebar {
     margin-right: -21px;
     margin-left: -20px;
@@ -30,4 +31,17 @@
     padding: 0.5in;
     border: 1px solid #000000;
     font-size: 11px;
+}
+
+.rotate th {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.wholeReport th, .wholeReport td {
+    text-align: center;
+    vertical-align: middle !important;
 }
