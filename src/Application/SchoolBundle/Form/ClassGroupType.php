@@ -9,6 +9,7 @@
 namespace Application\SchoolBundle\Form;
 
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -18,7 +19,16 @@ class ClassGroupType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('grade', 'entity', array('class' => 'Application\SchoolBundle\Entity\ClassGroup', 'property' => 'grade', 'translation_domain' => 'ApplicationSchoolBundle'));
+        $builder->add('grade', 'entity',
+            array(
+                'class' => 'Application\SchoolBundle\Entity\ClassGroup',
+                'query_builder' => function (EntityRepository $entityRepository) {
+                        return $entityRepository->createQueryBuilder('g')
+                            ->groupBy('g.grade')
+                            ->orderBy('g.grade', 'ASC');
+                    },
+                'property' => 'grade',
+                'translation_domain' => 'ApplicationSchoolBundle'));
     }
 
 
