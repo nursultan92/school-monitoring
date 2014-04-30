@@ -49,9 +49,9 @@ class ClassGroupController extends Controller
         return new JsonResponse($data);
     }
 
-    public function reportListAction($grade, $alphabet)
+    public function reportListAction($id)
     {
-        $classGroup = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->findOneBy(array('grade' => $grade, 'alphabet' => $alphabet));
+        $classGroup = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
 
         if (!$classGroup) {
             throw new EntityNotFoundException();
@@ -62,13 +62,13 @@ class ClassGroupController extends Controller
         return new JsonResponse($data);
     }
 
-    public function classGroupAction($grade, $alphabet)
+    public function classGroupAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findOneBy(array('grade' => $grade, 'alphabet' => $alphabet));
+        $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
 
         //TODO: Should select default school
-        $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll();
+        $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll()[0];
 
         if (!$classGroup) {
             throw new EntityNotFoundException();
@@ -79,7 +79,7 @@ class ClassGroupController extends Controller
         $byNationality = $em->getRepository('ApplicationSchoolBundle:Student')->byNationality($classGroup);
 
 
-        $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school[0], 'byNationality' => $byNationality));
+        $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school, 'byNationality' => $byNationality));
 
         return new JsonResponse($html);
     }

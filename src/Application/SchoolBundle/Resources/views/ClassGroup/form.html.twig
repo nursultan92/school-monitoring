@@ -1,1 +1,16 @@
-{{ form(classForm) }}
+{{ form_start(classForm) }}
+{{ form_row(classForm.grade) }}
+{{ form_row(classForm.alphabet) }}
+<div class="form-group">
+    <label class="radio-inline">
+        <input type="radio" name="type" value="report" checked>Отчет
+    </label>
+    <label class="alphabet radio-inline">
+        <input type="radio" name="type" value="list">Список учащихся
+    </label>
+</div>
+<div class="form-group">
+    <input type="button" class="form-control btn btn-success btn-report" value="Получить отчет">
+</div>
+
+{{ form_end(classForm) }}

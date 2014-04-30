@@ -1,22 +1,7 @@
-<div class="form-group alphabet">
-    <label for="alphabet">Серия</label>
-    <select class="form-control" id="alphabet">
+<select class="form-control alphabet" required="required" name="school_class_group[alphabet]"
+        id="school_class_group_alphabet">
     {% for c in classGroups %}
-            <option value="{{ c.alphabet }}">{{ c.alphabet }}</option>
-        {% endfor %}
+        <option value="{{ c.id }}">{{ c.alphabet }}</option>
+    {% endfor %}
     </select>
 
-</div>
-
-<div class="form-group alphabet">
-    <label class="radio-inline">
-        <input type="radio" name="type" value="report" checked>Отчет
-    </label>
-    <label class="alphabet radio-inline">
-        <input type="radio" name="type" value="list">Список учащихся
-    </label>
-
-</div>
-<div class="form-group alphabet">
-    <input type="button" class="form-control btn btn-success btn-report" value="Получить отчет">
-</div>

@@ -28,7 +28,19 @@ class ClassGroupType extends AbstractType
                             ->orderBy('g.grade', 'ASC');
                     },
                 'property' => 'grade',
-                'translation_domain' => 'ApplicationSchoolBundle'));
+                'translation_domain' => 'ApplicationSchoolBundle'))
+            ->add('alphabet', 'entity',
+                array(
+                    'class' => 'Application\SchoolBundle\Entity\ClassGroup',
+                    'query_builder' => function (EntityRepository $entityRepository) {
+                            return $entityRepository->createQueryBuilder('a')
+                                ->where('a.grade = 1')
+                                ->orderBy('a.alphabet', 'ASC');
+                        },
+                    'property' => 'alphabet',
+                    'label' => 'Серия',
+                    'attr' => array('class' => 'form-control alphabet')
+                ));
     }
 
 

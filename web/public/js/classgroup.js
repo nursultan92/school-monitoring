@@ -8,17 +8,15 @@ $('#school_class_group_grade').on('change', function () {
         url: 'http://school/app_dev.php/classgroups/grade/' + grade,
         /*url:url,*/
         success: function (data) {
-            $('.alphabet').remove();
-            selectGrade.append(data);
+            $('#school_class_group_alphabet').replaceWith(data);
         }
     });
 });
 
 $('form').on('click', '.btn-report', function () {
-    var grade = $('#school_class_group_grade').find('option:selected').text(),
-        alphabet = $('#alphabet').find('option:selected').text(),
+    var group_id = $('#school_class_group_alphabet').find('option:selected').val(),
         type = $('form').find('input[type="radio"]:checked').val(),
-        url = 'http://school/app_dev.php/report/classgroup/' + grade + '/' + alphabet + "/" + type;
+        url = 'http://school/app_dev.php/report/classgroup/' + group_id + "/" + type;
     $.ajax({
         url: url,
         success: function (data) {
