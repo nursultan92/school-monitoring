@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Application\SchoolBundle\ApplicationSchoolBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
