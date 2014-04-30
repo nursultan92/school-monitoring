@@ -15,9 +15,16 @@
                 <td>{{ loop.index }}</td>
                 <td>{{ classgroup.grade }} - {{ classgroup.alphabet }}</td>
                 <td>{{ classgroup.personal }}</td>
-                <td><a href="{{ path('school_classgroup_get',{'id': classgroup.id}) }}">Список</a></td>
-                <td><a class="text-success" href="{{ path('classgroup_report_classgroup',{'id': classgroup.id}) }}">Получить
-                        отчет</a></td>
+                <td>
+                    <a class="text-success" href="{{ path('classgroup_report_list',{'id': classgroup.id}) }}">Список</a>
+                    <a href="{{ path('classgroup_report_list',{'id':classgroup.id, 'type':'pdf'}) }}">В PDF формат</a>
+                </td>
+                <td>
+                    <a class="text-success" href="{{ path('classgroup_report_classgroup',{'id': classgroup.id}) }}">Получить
+                        отчет</a>
+                    <a href="{{ path('classgroup_report_classgroup',{'id':classgroup.id, 'type':'pdf'}) }}">В PDF
+                        формат</a>
+                </td>
             </tr>
         {% endfor %}
     </table>

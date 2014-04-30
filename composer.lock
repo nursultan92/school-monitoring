@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "79c62e6c05e1408788e3ff2237621de0",
+    "hash": "0955715642d228112ae8e1e5d49c5fb4",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -1596,6 +1596,48 @@
             "time": "2014-04-24 13:29:03"
         },
         {
+            "name": "mpdf/mpdf",
+            "version": "v5.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/finwe/mpdf.git",
+                "reference": "ca266f29a20ed00ee351aadee1934ddcfbbe4b53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/finwe/mpdf/zipball/ca266f29a20ed00ee351aadee1934ddcfbbe4b53",
+                "reference": "ca266f29a20ed00ee351aadee1934ddcfbbe4b53",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=4.3.10"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "mpdf.php",
+                    "classes"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-1.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ian Back"
+                }
+            ],
+            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
+            "homepage": "http://www.mpdf1.com/mpdf/index.php",
+            "keywords": [
+                "pdf",
+                "php",
+                "utf-8"
+            ],
+            "time": "2013-09-02 12:16:35"
+        },
+        {
             "name": "nelmio/api-doc-bundle",
             "version": "2.5.1",
             "target-dir": "Nelmio/ApiDocBundle",
@@ -3128,6 +3170,61 @@
                 "framework"
             ],
             "time": "2014-04-27 13:39:18"
+        },
+        {
+            "name": "tfox/mpdf-port-bundle",
+            "version": "1.2.1",
+            "target-dir": "TFox/MpdfPortBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tasmanianfox/MpdfPortBundle.git",
+                "reference": "d02ce0f913556436d2dcb1830b360dde24f74dec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tasmanianfox/MpdfPortBundle/zipball/d02ce0f913556436d2dcb1830b360dde24f74dec",
+                "reference": "d02ce0f913556436d2dcb1830b360dde24f74dec",
+                "shasum": ""
+            },
+            "require": {
+                "mpdf/mpdf": "~5.7",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "require-dev": {
+                "sensio/framework-extra-bundle": "*",
+                "symfony/browser-kit": "*",
+                "symfony/class-loader": "*",
+                "symfony/security-bundle": "*",
+                "symfony/yaml": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "TFox\\MpdfPortBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergei Beljakov",
+                    "email": "sergei.beljakov@tfox.eu"
+                }
+            ],
+            "description": "A wrapper for mPDF class which allows to use mPDF in Symfony2 projects",
+            "homepage": "http://github.com/tasmanianfox/MpdfPortBundle",
+            "keywords": [
+                "mpdf",
+                "pdf"
+            ],
+            "time": "2014-01-22 09:11:00"
         },
         {
             "name": "twig/extensions",

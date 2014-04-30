@@ -36,7 +36,8 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "beberlei/DoctrineExtensions": "*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
-        "sonata-project/core-bundle": "~2.2"
+        "sonata-project/core-bundle": "~2.2",
+        "tfox/mpdf-port-bundle": "1.2.*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -32,12 +32,12 @@ school_report_create:
     defaults: { _controller: ApplicationSchoolBundle:Report:create }
 
 classgroup_report_classgroup:
-    pattern:  /report/classgroup/{id}/report
-    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:classGroup }
+    pattern:  /report/classgroup/{id}/report/{type}
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:classGroup, type: json }
 
 classgroup_report_list:
-    pattern:  /report/classgroup/{id}/list
-    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:reportList }
+    pattern:  /report/classgroup/{id}/list/{type}
+    defaults: { _controller: ApplicationSchoolBundle:ClassGroup:reportList, type: json }
 
 student_extract:
     path: /report/extract

@@ -53,7 +53,7 @@ class ClassGroupController extends Controller
         return new JsonResponse($data);
     }
 
-    public function reportListAction($id)
+    public function reportListAction(Request $request, $id, $type)
     {
         $classGroup = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
 
@@ -61,12 +61,21 @@ class ClassGroupController extends Controller
             throw new EntityNotFoundException();
         }
 
-        $data = $this->renderView('@ApplicationSchool/ClassGroup/report_list.html.twig', array('class' => $classGroup));
+        $html = $this->renderView('@ApplicationSchool/ClassGroup/report_list.html.twig', array('class' => $classGroup));
 
-        return new JsonResponse($data);
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse($html);
+        } else if ($type == "pdf") {
+            $mpdf = $this->get('tfox.mpdfport');
+            $html = $this->renderView('@ApplicationSchool/ClassGroup/report_pdf.html.twig', array('class' => $classGroup));
+            return $mpdf->generatePdfResponse($html);
+        } else {
+            $html = $this->renderView('@ApplicationSchool/ClassGroup/report_html.html.twig', array('class' => $classGroup));
+            return new Response($html);
+        }
     }
 
-    public function classGroupAction(Request $request, $id)
+    public function classGroupAction(Request $request, $id, $type)
     {
         $em = $this->getDoctrine()->getManager();
         $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
@@ -85,9 +94,12 @@ class ClassGroupController extends Controller
 
         $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school, 'byNationality' => $byNationality));
 
-        if ($request->getMethod() == "POST")
+        if ($request->isXmlHttpRequest())
             return new JsonResponse($html);
-        else
+        else if ($type == "pdf") {
+            $mpdf = $this->get('tfox.mpdfport');
+            return $mpdf->generatePdfResponse($html);
+        } else
             return new Response($html);
     }
 } 
