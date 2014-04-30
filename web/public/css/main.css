@@ -25,7 +25,7 @@
     margin-top: 50px;
 }
 
-.report {
+.report-template {
     width: 8.3in;
     min-height: 11.7in;
     padding: 0.5in;
@@ -44,4 +44,8 @@
 .wholeReport th, .wholeReport td {
     text-align: center;
     vertical-align: middle !important;
+}
+
+nav {
+    padding: 10px 0;
 }

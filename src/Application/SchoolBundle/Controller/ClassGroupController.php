@@ -35,8 +35,10 @@ class ClassGroupController extends Controller
     public function getFormAction()
     {
         $classGroup = new ClassGroup();
-        $classForm = $this->createForm(new ClassGroupType(), $classGroup);
-
+        $classForm = $this->createForm(
+            new ClassGroupType(),
+            $classGroup
+        );
         return $this->render('ApplicationSchoolBundle:ClassGroup:form.html.twig', array('classForm' => $classForm->createView()));
     }
 

@@ -22,11 +22,20 @@
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
+        <div class="logo pull-left">
+            <a href="{{ path('school_main_index') }}">
+                <img src="{{ asset('public/img/logo.png') }}"/>
+            </a>
+        </div>
         <ul class="nav navbar-nav">
-            <li><a href="{{ path('school_main_index') }}" class="navbar-brand">На главную</a></li>
+            <li><a href="{{ path('school_classgroup_list') }}">Список классов</a></li>
+            <li><a href="{{ path('school_report_index') }}">История отчетов</a></li>
+            <li><a href="{{ path('school_report_create') }}">Отчеты по классам</a></li>
+            <li><a href="{{ path('student_extract') }}">Выписка</a></li>
+            <li><a href="{{ path('student_summer') }}">За лето</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <li><a href="{{ path('sonata_admin_dashboard') }}">Админ</a></li>
+            <li class=""><a href="{{ path('sonata_admin_dashboard') }}">Админ</a></li>
         </ul>
 
     </div>
@@ -34,22 +43,12 @@
 <div class="container content">
     {% block body %}
         <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li><a href="{{ path('school_classgroup_list') }}">Список классов</a></li>
-                    <li><a href="{{ path('school_report_index') }}">История отчетов</a></li>
-                    <li><a href="{{ path('school_report_create') }}">Отчеты по классам</a></li>
-                    <li><a href="{{ path('student_extract') }}">Выписка</a></li>
-                    <li><a href="{{ path('student_summer') }}">За лето</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 ">
+            <div class="col-md-12 col-sm-12">
                 <h1 class="page-header">
                     {% block content_title %}
                         Панель
                     {% endblock %}
                 </h1>
-
                 {% block content %}
                 {% endblock %}
             </div>
