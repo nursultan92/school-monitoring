@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Добро пожаловать{% endblock %}</title>
     {% block stylesheets %}
         <link href="{{ asset('public/css/normalize.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('public/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
@@ -29,10 +29,10 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="{{ path('school_classgroup_list') }}">Список классов</a></li>
-            <li><a href="{{ path('school_report_index') }}">История отчетов</a></li>
             <li><a href="{{ path('school_report_create') }}">Отчеты по классам</a></li>
             <li><a href="{{ path('student_extract') }}">Выписка</a></li>
             <li><a href="{{ path('student_summer') }}">За лето</a></li>
+            <li><a href="{{ path('school_report_index') }}">История отчетов</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
             <li class=""><a href="{{ path('sonata_admin_dashboard') }}">Админ</a></li>
