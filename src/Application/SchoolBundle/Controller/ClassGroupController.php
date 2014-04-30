@@ -14,6 +14,8 @@ use Application\SchoolBundle\Form\ClassGroupType;
 use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ClassGroupController extends Controller
 {
@@ -64,7 +66,7 @@ class ClassGroupController extends Controller
         return new JsonResponse($data);
     }
 
-    public function classGroupAction($id)
+    public function classGroupAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $classGroup = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->find($id);
@@ -83,6 +85,9 @@ class ClassGroupController extends Controller
 
         $html = $this->renderView('ApplicationSchoolBundle:Report:classgroup.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school, 'byNationality' => $byNationality));
 
-        return new JsonResponse($html);
+        if ($request->getMethod() == "POST")
+            return new JsonResponse($html);
+        else
+            return new Response($html);
     }
 } 

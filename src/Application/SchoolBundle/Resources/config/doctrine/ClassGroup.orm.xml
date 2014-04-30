@@ -9,8 +9,6 @@
         <field name="grade" type="smallint" column="grade"/>
         <field name="alphabet" type="string" length="1" column="alphabet"/>
         <one-to-many target-entity="Application\SchoolBundle\Entity\Student" field="students" mapped-by="classgroup"/>
-        <one-to-one field="personal" target-entity="Application\SchoolBundle\Entity\Personal">
-            <join-column name="personal_id" referenced-column-name="id"/>
-        </one-to-one>
+        <one-to-one field="personal" target-entity="Application\SchoolBundle\Entity\Personal" inversed-by="classgroup"/>
     </entity>
 </doctrine-mapping>

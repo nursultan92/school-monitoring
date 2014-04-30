@@ -19,6 +19,7 @@ $('form').on('click', '.btn-report', function () {
         url = 'http://school/app_dev.php/report/classgroup/' + group_id + "/" + type;
     $.ajax({
         url: url,
+        method: "POST",
         success: function (data) {
             $('.report').html(data);
         }

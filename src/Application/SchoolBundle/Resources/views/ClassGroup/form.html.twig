@@ -2,12 +2,17 @@
 {{ form_row(classForm.grade) }}
 {{ form_row(classForm.alphabet) }}
 <div class="form-group">
-    <label>
-        <input type="radio" name="type" value="report" checked>Отчет
-    </label>
-    <label>
-        <input type="radio" name="type" value="list">Список учащихся
-    </label>
+    <fieldset>
+        <legend>Выберите тип отчета</legend>
+        <label class="btn-radio">
+            <input type="radio" name="type" value="report" checked>
+            <span>Отчет</span>
+        </label>
+        <label class="btn-radio">
+            <input type="radio" name="type" value="list">
+            <span>Список учащихся</span>
+        </label>
+    </fieldset>
 </div>
 <div class="form-group">
     <input type="button" class="form-control btn btn-primary btn-report" value="Получить отчет">

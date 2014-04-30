@@ -3,16 +3,21 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>№</th>
             <th>Класс</th>
             <th>Руководитель класса</th>
-            <th>Список учеников</th>
+            <th>Отчет</th>
+            <th>Отчет</th>
         </tr>
         </thead>
         {% for classgroup in classgroups %}
             <tr>
+                <td>{{ loop.index }}</td>
                 <td>{{ classgroup.grade }} - {{ classgroup.alphabet }}</td>
                 <td>{{ classgroup.personal }}</td>
-                <td><a href="{{ path('school_classgroup_get',{'id': classgroup.id}) }}">Ученики</a></td>
+                <td><a href="{{ path('school_classgroup_get',{'id': classgroup.id}) }}">Список</a></td>
+                <td><a class="text-success" href="{{ path('classgroup_report_classgroup',{'id': classgroup.id}) }}">Получить
+                        отчет</a></td>
             </tr>
         {% endfor %}
     </table>

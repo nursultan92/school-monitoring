@@ -1,19 +1,46 @@
 {% extends '::base.html.twig' %}
 {% block content %}
-    {% set students = classgroup.students %}
-
-    <table class="table table-bordered">
+    <h5>Список учащихся <strong>{{ classgroup.grade }} "{{ classgroup.alphabet }}"</strong> класса <span
+                class="pull-right">Классный руководитель <strong>{{ classgroup.personal.lastname }} {{ classgroup.personal.firstname }}</strong></span>
+    </h5>
+    <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>№</th>
-            <th>ф.И.О</th>
+            <th>Ф.И. ученика</th>
+            <th>№ л.дела</th>
+            <th>Пол</th>
+            <th>Нац.</th>
+            <th>Год рождения</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+            <th>Прибыл</th>
+            <th>Выбыл</th>
+            <th>Число(выбыл)</th>
         </tr>
         </thead>
-        {% for student in students %}
+        <tbody>
+        {% for s in classgroup.students %}
             <tr>
-                <td>{{ loop.index +1 }}</td>
-                <td>{{ student.lastname }} {{ student.firstname }}</td>
+                <td>{{ loop.index }}</td>
+                <td>{{ s.lastname }} {{ s.firstname }}</td>
+                <td>{{ s.personalNumber }}</td>
+                <td>{{ s.sex }}</td>
+                <td>{{ s.nationality }}</td>
+                <td>{{ s.birthday|date('d-m-Y') }}</td>
+                <td>{{ s.address }}</td>
+                <td>{{ s.telephone }}</td>
+                <td>{% if s.transfer and s.transfer.moved =='Выбыл' %} {{ s.transfer }} {% endif %}</td>
+                <td>{% if s.transfer and s.transfer.moved =='Прибыл' %} {{ s.transfer }} {% endif %}</td>
+                <td>{% if s.transfer and s.transfer.moved =='Прибыл' %} {{ s.transfer.date|date('d-m-Y') }} {% endif %}</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
+    <p> Мальчиков: <strong>{{ classgroup.genderCount.m }}</strong></p>
+    <p>Девочек: <strong>{{ classgroup.genderCount.f }}</strong></p>
+
+
 {% endblock %}
+
+

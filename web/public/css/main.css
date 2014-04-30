@@ -49,3 +49,11 @@
 nav {
     padding: 10px 0;
 }
+
+.btn-radio {
+    width: 200px;
+}
+
+.btn-radio span {
+    padding-left: 10px;
+}

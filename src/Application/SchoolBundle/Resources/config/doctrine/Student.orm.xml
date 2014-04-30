@@ -14,7 +14,8 @@
         <field name="birthday" type="date" column="birthday"/>
         <field name="address" type="string" column="address" length="255"/>
         <field name="telephone" type="string" column="telephone" length="15" nullable="true"/>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" field="classgroup"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\ClassGroup" field="classgroup"
+                     inversed-by="students"/>
         <many-to-one target-entity="Application\SchoolBundle\Entity\Nationality" field="nationality"/>
         <one-to-one field="transfer" target-entity="Application\SchoolBundle\Entity\Transfer">
             <join-column name="transfer_id" referenced-column-name="id"/>
