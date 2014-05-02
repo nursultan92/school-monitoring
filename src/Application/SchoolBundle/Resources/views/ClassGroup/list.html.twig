@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block content_title %}
+    Мониторинг движения учащихся по классам
+{% endblock %}
 {% block content %}
     <table class="table table-striped">
         <thead>
@@ -6,8 +9,8 @@
             <th>№</th>
             <th>Класс</th>
             <th>Руководитель класса</th>
-            <th>Отчет</th>
-            <th>Отчет</th>
+            <th>Список учащихся</th>
+            <th>Отчет по движению учащихся</th>
         </tr>
         </thead>
         {% for classgroup in classgroups %}
@@ -16,16 +19,19 @@
                 <td>{{ classgroup.grade }} - {{ classgroup.alphabet }}</td>
                 <td>{{ classgroup.personal }}</td>
                 <td>
-                    <a class="text-success" href="{{ path('classgroup_report_list',{'id': classgroup.id}) }}">Список</a>
+                    <a class="text-success" href="{{ path('classgroup_report_list',{'id': classgroup.id}) }}">Подробная
+                        информация</a>
                     <a href="{{ path('classgroup_report_list',{'id':classgroup.id, 'type':'pdf'}) }}">В PDF формат</a>
                 </td>
                 <td>
-                    <a class="text-success" href="{{ path('classgroup_report_classgroup',{'id': classgroup.id}) }}">Получить
-                        отчет</a>
+                    <a class="text-success" href="{{ path('classgroup_report_classgroup',{'id': classgroup.id}) }}">
+                        Просмотреть отчет по классу
+                    </a>
                     <a href="{{ path('classgroup_report_classgroup',{'id':classgroup.id, 'type':'pdf'}) }}">В PDF
                         формат</a>
                 </td>
             </tr>
         {% endfor %}
     </table>
+    {{ knp_pagination_render(classgroups) }}
 {% endblock %}

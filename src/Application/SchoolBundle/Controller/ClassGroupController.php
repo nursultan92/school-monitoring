@@ -24,7 +24,11 @@ class ClassGroupController extends Controller
     {
         $classGroups = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:ClassGroup')->findAll();
 
-        return $this->render('ApplicationSchoolBundle:ClassGroup:list.html.twig', array('classgroups' => $classGroups));
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate($classGroups, $this->get('request')->query->get('page', 1), 20);
+
+        return $this->render('ApplicationSchoolBundle:ClassGroup:list.html.twig', array('classgroups' => $pagination));
     }
 
     public function getAction($id)

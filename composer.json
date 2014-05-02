@@ -37,7 +37,8 @@
         "beberlei/DoctrineExtensions": "*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "sonata-project/core-bundle": "~2.2",
-        "tfox/mpdf-port-bundle": "1.2.*"
+        "tfox/mpdf-port-bundle": "1.2.*",
+        "knplabs/knp-paginator-bundle": "~2.4"
     },
     "scripts": {
         "post-install-cmd": [
