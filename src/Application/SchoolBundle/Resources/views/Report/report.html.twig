@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block content_title %}
+    {{ report.academicYear }} {{ report.quarter }}
+    {% endblock %}
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Класс</th>
+            <th>Руководитель класса</th>
+            <th>Список учащихся</th>
+            <th>Отчет по движению учащихся</th>
+        </tr>
+        </thead>
+        {% for class in report.reportClass  %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ class.name }}</td>
+                <td>{{ class.lastname }} {{ class.firstname }}</td>
+                <td><a class="text-success" href="">Подробная информация</a></td>
+                <td><a class="text-success" href="">Просмотреть отчет по классу</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

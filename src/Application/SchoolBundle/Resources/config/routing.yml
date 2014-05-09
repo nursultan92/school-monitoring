@@ -24,7 +24,7 @@ school_academicyear_get:
     defaults: { _controller: ApplicationSchoolBundle:AcademiYear:get }
 
 school_report_index:
-    pattern:  /report/index
+    pattern:  /reports/
     defaults: { _controller: ApplicationSchoolBundle:Report:index }
 
 school_report_create:
@@ -50,3 +50,7 @@ student_summer:
 report_student_add:
     path: /report/history/add
     defaults: { _controller:  ApplicationSchoolBundle:Report:addToHistory }
+
+report_report:
+    path: /reports/{id}
+    defaults: { _controller:  ApplicationSchoolBundle:Report:report  }

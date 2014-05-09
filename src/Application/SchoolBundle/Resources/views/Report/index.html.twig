@@ -1,7 +1,30 @@
 {% extends '::base.html.twig' %}
 {% block content_title %}
-    Панель отчета
 {% endblock %}
 {% block content %}
     {{ render(controller('ApplicationSchoolBundle:Report:searchForm')) }}
+
+            <table class="table table-striped">
+
+            <thead>
+            <tr>
+                <th>Учебный год</th>
+                <th>Четверть</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                {% for report in reports %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('report_report',{'id': report.id}) }}">{{ report.academicYear }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('report_report',{'id': report.id}) }}">{{ report.quarter }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+
 {% endblock %}
