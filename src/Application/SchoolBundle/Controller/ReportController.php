@@ -35,6 +35,9 @@ class ReportController extends Controller
 
         $students = $em->getRepository('ApplicationSchoolBundle:Student')->findAll();
 
+        $em->getRepository('ApplicationSchoolBundle:ClassGroup')->persist();
+
+
         $result = $em->getRepository('ApplicationSchoolBundle:Report')->persist($school, $students);
 
         return new JsonResponse($result);

@@ -16,13 +16,10 @@
         <field name="telephone" type="string" column="telephone" length="15" nullable="true"/>
         <field name="classGroup" type="string" column="class_group" length="10" nullable="false"/>
         <field name="nationality" type="string" length="255" nullable="false" column="nationality"/>
-        <many-to-one target-entity="Application\SchoolBundle\Entity\Report" field="report" inversed-by="students"/>
-        <one-to-one field="transfer" target-entity="Application\SchoolBundle\Entity\ReportTransfer">
-            <join-column name="transfer_id" referenced-column-name="id"/>
-            <cascade>
-                <cascade-persist/>
-                <cascade-remove/>
-            </cascade>
-        </one-to-one>
+        <field name="place" type="string" column="place" length="70" nullable="true"/>
+        <field name="moved" type="string" column="moved" length="10" nullable="true"/>
+        <field name="date" type="date" column="date" nullable="true"/>
+        <field name="placeLocation" type="string" column="place_location" length="50" nullable="true"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\ReportClass" field="reportClass" inversed-by="students"/>
     </entity>
 </doctrine-mapping>

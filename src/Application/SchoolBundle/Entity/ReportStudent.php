@@ -50,11 +50,6 @@ class ReportStudent
     private $id;
 
     /**
-     * @var \Application\SchoolBundle\Entity\Transfer
-     */
-    private $transfer;
-
-    /**
      * @var \Application\SchoolBundle\Entity\Nationality
      */
     private $nationality;
@@ -236,28 +231,6 @@ class ReportStudent
         return $this->id;
     }
 
-    /**
-     * Set transfer
-     *
-     * @param \Application\SchoolBundle\Entity\Transfer $transfer
-     * @return ReportStudent
-     */
-    public function setTransfer(\Application\SchoolBundle\Entity\ReportTransfer $transfer = null)
-    {
-        $this->transfer = $transfer;
-
-        return $this;
-    }
-
-    /**
-     * Get transfer
-     *
-     * @return \Application\SchoolBundle\Entity\Transfer
-     */
-    public function getTransfer()
-    {
-        return $this->transfer;
-    }
 
     /**
      * Set report
@@ -332,5 +305,145 @@ class ReportStudent
     public function getNationality()
     {
         return $this->nationality;
+    }
+    /**
+     * @var \Application\SchoolBundle\Entity\ReportClass
+     */
+    private $reportClass;
+
+
+    /**
+     * Set reportClass
+     *
+     * @param \Application\SchoolBundle\Entity\ReportClass $reportClass
+     * @return ReportStudent
+     */
+    public function setReportClass(\Application\SchoolBundle\Entity\ReportClass $reportClass = null)
+    {
+        $this->reportClass = $reportClass;
+
+        return $this;
+    }
+
+    /**
+     * Get reportClass
+     *
+     * @return \Application\SchoolBundle\Entity\ReportClass 
+     */
+    public function getReportClass()
+    {
+        return $this->reportClass;
+    }
+    /**
+     * @var string
+     */
+    private $place;
+
+    /**
+     * @var string
+     */
+    private $moved;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $placeLocation;
+
+
+    /**
+     * Set place
+     *
+     * @param string $place
+     * @return ReportStudent
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * Get place
+     *
+     * @return string 
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * Set moved
+     *
+     * @param string $moved
+     * @return ReportStudent
+     */
+    public function setMoved($moved)
+    {
+        $this->moved = $moved;
+
+        return $this;
+    }
+
+    /**
+     * Get moved
+     *
+     * @return string 
+     */
+    public function getMoved()
+    {
+        return $this->moved;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return ReportStudent
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set placeLocation
+     *
+     * @param string $placeLocation
+     * @return ReportStudent
+     */
+    public function setPlaceLocation($placeLocation)
+    {
+        $this->placeLocation = $placeLocation;
+
+        return $this;
+    }
+
+    /**
+     * Get placeLocation
+     *
+     * @return string 
+     */
+    public function getPlaceLocation()
+    {
+        return $this->placeLocation;
     }
 }

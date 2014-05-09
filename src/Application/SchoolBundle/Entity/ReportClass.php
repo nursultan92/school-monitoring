@@ -108,4 +108,77 @@ class ReportClass
     {
         return $this->id;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $students;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add students
+     *
+     * @param \Application\SchoolBundle\Entity\ReportStudent $students
+     * @return ReportClass
+     */
+    public function addStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
+    {
+        $this->students[] = $students;
+
+        return $this;
+    }
+
+    /**
+     * Remove students
+     *
+     * @param \Application\SchoolBundle\Entity\ReportStudent $students
+     */
+    public function removeStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+    /**
+     * @var \Application\SchoolBundle\Entity\Report
+     */
+    private $report;
+
+
+    /**
+     * Set report
+     *
+     * @param \Application\SchoolBundle\Entity\Report $report
+     * @return ReportClass
+     */
+    public function setReport(\Application\SchoolBundle\Entity\Report $report = null)
+    {
+        $this->report = $report;
+
+        return $this;
+    }
+
+    /**
+     * Get report
+     *
+     * @return \Application\SchoolBundle\Entity\Report 
+     */
+    public function getReport()
+    {
+        return $this->report;
+    }
 }

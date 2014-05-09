@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClassGroupRepository extends EntityRepository
 {
+    public function persist(){
+        $classGroups = $this->findAll();
+
+        foreach ($classGroups as $classGroup) {
+            $reportClass = new ReportClassPersonal();
+            $reportClass->setFirstname($classGroup->getPersonal()->getFirstname());
+            $reportClass->setLastname($classGroup->getPersonal()->getLastname());
+            $reportClass->setClassGroup($classGroup->__toString());
+            $this->_em->persist($reportClass);
+            $this->_em->flush();
+        }
+
+    }
 }

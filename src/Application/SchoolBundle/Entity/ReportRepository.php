@@ -17,7 +17,6 @@ class ReportRepository extends EntityRepository
         foreach ($students as $student) {
 
             $rStudent = new ReportStudent();
-            $reportTransfer = new ReportTransfer();
 
             $transfer = $student->getTransfer();
 
@@ -32,17 +31,14 @@ class ReportRepository extends EntityRepository
             $rStudent->setTelephone($student->getTelephone());
 
             if ($transfer) {
-                $reportTransfer->setMoved($transfer->getMoved());
-                $reportTransfer->setPlace($transfer->getPlace());
-                $reportTransfer->setDate($transfer->getDate());
-                $reportTransfer->setTransferLocation($transfer->getTransferLocation());
-                $rStudent->setTransfer($reportTransfer);
+                $rStudent->setMoved($transfer->getMoved());
+                $rStudent->setPlace($transfer->getPlace());
+                $rStudent->setDate($transfer->getDate());
+                $rStudent->setPlaceLocation($transfer->getTransferLocation());
             }
-            $report->addStudent($rStudent);
+
         }
-        foreach ($report->getStudents() as $student) {
-            $student->setReport($report);
-        }
+
         $em = $this->getEntityManager();
         $em->persist($report);
         $em->flush();

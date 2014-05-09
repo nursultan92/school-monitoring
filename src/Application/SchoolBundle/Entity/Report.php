@@ -2,6 +2,10 @@
 
 namespace Application\SchoolBundle\Entity;
 
+use Application\SchoolBundle\Entity\AcademicYear;
+use Application\SchoolBundle\Entity\Quarter;
+use Application\SchoolBundle\Entity\ReportClass;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,9 +20,14 @@ class Report
     private $id;
 
     /**
-     * @var \Application\SchoolBundle\Entity\AcademicYear
+     * @var AcademicYear
      */
     private $academicYear;
+
+    /**
+     * @var Quarter
+     */
+    private $quarter;
 
     /**
      * Get id
@@ -33,10 +42,10 @@ class Report
     /**
      * Set academicYear
      *
-     * @param \Application\SchoolBundle\Entity\AcademicYear $academicYear
+     * @param AcademicYear $academicYear
      * @return Report
      */
-    public function setAcademicYear(\Application\SchoolBundle\Entity\AcademicYear $academicYear = null)
+    public function setAcademicYear(AcademicYear $academicYear = null)
     {
         $this->academicYear = $academicYear;
 
@@ -46,7 +55,7 @@ class Report
     /**
      * Get academicYear
      *
-     * @return \Application\SchoolBundle\Entity\AcademicYear
+     * @return AcademicYear
      */
     public function getAcademicYear()
     {
@@ -63,55 +72,17 @@ class Report
      */
     public function __construct()
     {
-        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->students = new ArrayCollection();
     }
-
-    /**
-     * Add students
-     *
-     * @param \Application\SchoolBundle\Entity\ReportStudent $students
-     * @return Report
-     */
-    public function addStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
-    {
-        $this->students[] = $students;
-
-        return $this;
-    }
-
-    /**
-     * Remove students
-     *
-     * @param \Application\SchoolBundle\Entity\ReportStudent $students
-     */
-    public function removeStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
-    {
-        $this->students->removeElement($students);
-    }
-
-    /**
-     * Get students
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getStudents()
-    {
-        return $this->students;
-    }
-
-    /**
-     * @var \Application\SchoolBundle\Entity\Quarter
-     */
-    private $quarter;
 
 
     /**
      * Set quarter
      *
-     * @param \Application\SchoolBundle\Entity\Quarter $quarter
+     * @param Quarter $quarter
      * @return Report
      */
-    public function setQuarter(\Application\SchoolBundle\Entity\Quarter $quarter = null)
+    public function setQuarter(Quarter $quarter = null)
     {
         $this->quarter = $quarter;
 
@@ -121,10 +92,48 @@ class Report
     /**
      * Get quarter
      *
-     * @return \Application\SchoolBundle\Entity\Quarter
+     * @return Quarter
      */
     public function getQuarter()
     {
         return $this->quarter;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reportClass;
+
+
+    /**
+     * Add reportClass
+     *
+     * @param ReportClass $reportClass
+     * @return Report
+     */
+    public function addReportClass(ReportClass $reportClass)
+    {
+        $this->reportClass[] = $reportClass;
+
+        return $this;
+    }
+
+    /**
+     * Remove reportClass
+     *
+     * @param ReportClass $reportClass
+     */
+    public function removeReportClass(ReportClass $reportClass)
+    {
+        $this->reportClass->removeElement($reportClass);
+    }
+
+    /**
+     * Get reportClass
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getReportClass()
+    {
+        return $this->reportClass;
     }
 }
