@@ -54,11 +54,6 @@ class ReportStudent
      */
     private $nationality;
 
-    /**
-     * @var \Application\SchoolBundle\Entity\ReportStudent
-     */
-    private $report;
-
 
     /**
      * Set firstname
@@ -229,30 +224,6 @@ class ReportStudent
     public function getId()
     {
         return $this->id;
-    }
-
-
-    /**
-     * Set report
-     *
-     * @param \Application\SchoolBundle\Entity\Report $report
-     * @return Report
-     */
-    public function setReport(\Application\SchoolBundle\Entity\Report $report = null)
-    {
-        $this->report = $report;
-
-        return $this;
-    }
-
-    /**
-     * Get report
-     *
-     * @return \Application\SchoolBundle\Entity\Report
-     */
-    public function getReport()
-    {
-        return $this->report;
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace Application\SchoolBundle\Entity;
 
+use Application\SchoolBundle\Entity\ClassGroup;
+use Application\SchoolBundle\Entity\Nationality;
+use Application\SchoolBundle\Entity\Transfer;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,12 +53,12 @@ class Student
     private $id;
 
     /**
-     * @var \Application\SchoolBundle\Entity\ClassGroup
+     * @var ClassGroup
      */
     private $classgroup;
 
     /**
-     * @var \Application\SchoolBundle\Entity\Nationality
+     * @var Nationality
      */
     private $nationality;
 
@@ -234,10 +237,10 @@ class Student
     /**
      * Set classgroup
      *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroup
+     * @param ClassGroup $classgroup
      * @return Student
      */
-    public function setClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroup = null)
+    public function setClassgroup(ClassGroup $classgroup = null)
     {
         $this->classgroup = $classgroup;
 
@@ -247,7 +250,7 @@ class Student
     /**
      * Get classgroup
      *
-     * @return \Application\SchoolBundle\Entity\ClassGroup
+     * @return ClassGroup
      */
     public function getClassgroup()
     {
@@ -257,10 +260,10 @@ class Student
     /**
      * Set nationality
      *
-     * @param \Application\SchoolBundle\Entity\Nationality $nationality
+     * @param Nationality $nationality
      * @return Student
      */
-    public function setNationality(\Application\SchoolBundle\Entity\Nationality $nationality = null)
+    public function setNationality(Nationality $nationality = null)
     {
         $this->nationality = $nationality;
 
@@ -270,7 +273,7 @@ class Student
     /**
      * Get nationality
      *
-     * @return \Application\SchoolBundle\Entity\Nationality
+     * @return Nationality
      */
     public function getNationality()
     {
@@ -278,7 +281,7 @@ class Student
     }
 
     /**
-     * @var \Application\SchoolBundle\Entity\Transfer
+     * @var Transfer
      */
     private $transfer;
 
@@ -286,10 +289,10 @@ class Student
     /**
      * Set transfer
      *
-     * @param \Application\SchoolBundle\Entity\Transfer $transfer
+     * @param Transfer $transfer
      * @return Student
      */
-    public function setTransfer(\Application\SchoolBundle\Entity\Transfer $transfer = null)
+    public function setTransfer(Transfer $transfer = null)
     {
         $this->transfer = $transfer;
 
@@ -299,10 +302,34 @@ class Student
     /**
      * Get transfer
      *
-     * @return \Application\SchoolBundle\Entity\Transfer
+     * @return Transfer
      */
     public function getTransfer()
     {
         return $this->transfer;
+    }
+
+    public function toReportStudent(ReportClass $reportClass)
+    {
+        $reportStudent = new ReportStudent();
+        $reportStudent
+            ->setFirstname($this->firstname)
+            ->setLastname($this->lastname)
+            ->setPersonalNumber($this->personalNumber)
+            ->setSex($this->sex)
+            ->setBirthday($this->birthday)
+            ->setAddress($this->address)
+            ->setTelephone($this->telephone)
+            ->setNationality($this->getNationality()->getName())
+            ->setReportClass($reportClass);
+            if($this->transfer){
+                $reportStudent
+                    ->setPlace($this->transfer->getPlace())
+                    ->setMoved($this->transfer->getMoved())
+                    ->setDate($this->transfer->getDate())
+                    ->setPlaceLocation($this->transfer->getTransferLocation()->getPlace());
+            }
+        return $reportStudent;
+
     }
 }

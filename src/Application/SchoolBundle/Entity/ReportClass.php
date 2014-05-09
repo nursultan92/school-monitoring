@@ -2,6 +2,9 @@
 
 namespace Application\SchoolBundle\Entity;
 
+use Application\SchoolBundle\Entity\Report;
+use Application\SchoolBundle\Entity\ReportStudent;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -118,16 +121,16 @@ class ReportClass
      */
     public function __construct()
     {
-        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->students = new ArrayCollection();
     }
 
     /**
      * Add students
      *
-     * @param \Application\SchoolBundle\Entity\ReportStudent $students
+     * @param ReportStudent $students
      * @return ReportClass
      */
-    public function addStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
+    public function addStudent(ReportStudent $students)
     {
         $this->students[] = $students;
 
@@ -137,9 +140,9 @@ class ReportClass
     /**
      * Remove students
      *
-     * @param \Application\SchoolBundle\Entity\ReportStudent $students
+     * @param ReportStudent $students
      */
-    public function removeStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
+    public function removeStudent(ReportStudent $students)
     {
         $this->students->removeElement($students);
     }
@@ -154,7 +157,7 @@ class ReportClass
         return $this->students;
     }
     /**
-     * @var \Application\SchoolBundle\Entity\Report
+     * @var Report
      */
     private $report;
 
@@ -162,10 +165,10 @@ class ReportClass
     /**
      * Set report
      *
-     * @param \Application\SchoolBundle\Entity\Report $report
+     * @param Report $report
      * @return ReportClass
      */
-    public function setReport(\Application\SchoolBundle\Entity\Report $report = null)
+    public function setReport(Report $report = null)
     {
         $this->report = $report;
 
@@ -175,7 +178,7 @@ class ReportClass
     /**
      * Get report
      *
-     * @return \Application\SchoolBundle\Entity\Report 
+     * @return Report
      */
     public function getReport()
     {

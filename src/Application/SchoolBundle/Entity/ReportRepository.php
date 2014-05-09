@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityRepository;
 
 class ReportRepository extends EntityRepository
 {
-    public function persist(School $school, $students)
+    public function persist(School $school, $classes)
     {
 
         $report = new Report();
@@ -14,31 +14,22 @@ class ReportRepository extends EntityRepository
         $report->setAcademicYear($school->getAcademicYear());
         $report->setQuarter($school->getCurrentQuarter());
 
-        foreach ($students as $student) {
 
-            $rStudent = new ReportStudent();
+        foreach($classes as $class){
 
-            $transfer = $student->getTransfer();
+            $rClass = new ReportClass();
 
-            $rStudent->setAddress($student->getAddress());
-            $rStudent->setBirthday($student->getBirthDay());
-            $rStudent->setClassGroup($student->getClassGroup()->__toString());
-            $rStudent->setFirstname($student->getFirstname());
-            $rStudent->setLastname($student->getLastname());
-            $rStudent->setNationality($student->getNationality()->getName());
-            $rStudent->setPersonalNumber($student->getPersonalNumber());
-            $rStudent->setSex($student->getSex());
-            $rStudent->setTelephone($student->getTelephone());
+            $rClass->setReport($report);
+            $rClass->setName($class->__toString());
+            $rClass->setFirstname($class->getPersonal()->getFirstname());
+            $rClass->setLastname($class->getPersonal()->getLastname());
 
-            if ($transfer) {
-                $rStudent->setMoved($transfer->getMoved());
-                $rStudent->setPlace($transfer->getPlace());
-                $rStudent->setDate($transfer->getDate());
-                $rStudent->setPlaceLocation($transfer->getTransferLocation());
+            foreach($class->getStudents() as $student){
+                $rClass->addStudent($student->toReportStudent($rClass));
             }
 
+            $report->addReportClass($rClass);
         }
-
         $em = $this->getEntityManager();
         $em->persist($report);
         $em->flush();
