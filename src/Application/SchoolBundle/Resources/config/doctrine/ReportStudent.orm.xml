@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Application\SchoolBundle\Entity\ReportStudent" table="report_students"
+            repository-class="Application\SchoolBundle\Entity\ReportStudentRepository">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="firstname" type="string" column="firstname" length="100"/>
+        <field name="lastname" type="string" column="lastname" length="100"/>
+        <field name="personalNumber" type="string" column="personalNumber" length="10"/>
+        <field name="sex" type="string" column="sex" length="10"/>
+        <field name="birthday" type="date" column="birthday"/>
+        <field name="address" type="string" column="address" length="255"/>
+        <field name="telephone" type="string" column="telephone" length="15" nullable="true"/>
+        <field name="classGroup" type="string" column="class_group" length="10" nullable="false"/>
+        <field name="nationality" type="string" length="255" nullable="false" column="nationality"/>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\Report" field="report" inversed-by="students"/>
+        <one-to-one field="transfer" target-entity="Application\SchoolBundle\Entity\ReportTransfer">
+            <join-column name="transfer_id" referenced-column-name="id"/>
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-one>
+    </entity>
+</doctrine-mapping>

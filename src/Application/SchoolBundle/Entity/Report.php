@@ -54,32 +54,49 @@ class Report
     }
 
     /**
-     * @var \Application\SchoolBundle\Entity\ClassGroup
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $classGroup;
-
+    private $students;
 
     /**
-     * Set classGroup
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add students
      *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classGroup
+     * @param \Application\SchoolBundle\Entity\ReportStudent $students
      * @return Report
      */
-    public function setClassGroup(\Application\SchoolBundle\Entity\ClassGroup $classGroup = null)
+    public function addStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
     {
-        $this->classGroup = $classGroup;
+        $this->students[] = $students;
 
         return $this;
     }
 
     /**
-     * Get classGroup
+     * Remove students
      *
-     * @return \Application\SchoolBundle\Entity\ClassGroup
+     * @param \Application\SchoolBundle\Entity\ReportStudent $students
      */
-    public function getClassGroup()
+    public function removeStudent(\Application\SchoolBundle\Entity\ReportStudent $students)
     {
-        return $this->classGroup;
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStudents()
+    {
+        return $this->students;
     }
 
     /**

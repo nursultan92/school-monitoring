@@ -15,10 +15,9 @@ class Quarter
     private $id;
 
     /**
-     * @var integer
+     * @var string
      */
     private $name;
-
 
     /**
      * Get id
@@ -33,7 +32,7 @@ class Quarter
     /**
      * Set name
      *
-     * @param integer $name
+     * @param string $name
      * @return Quarter
      */
     public function setName($name)
@@ -46,7 +45,7 @@ class Quarter
     /**
      * Get name
      *
-     * @return integer
+     * @return string
      */
     public function getName()
     {
@@ -55,6 +54,6 @@ class Quarter
 
     public function __toString()
     {
-        return $this->name . '';
+        return $this->name;
     }
 }

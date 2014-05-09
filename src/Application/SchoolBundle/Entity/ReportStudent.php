@@ -5,9 +5,9 @@ namespace Application\SchoolBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Student
+ * ReportStudent
  */
-class Student
+class ReportStudent
 {
     /**
      * @var string
@@ -50,21 +50,26 @@ class Student
     private $id;
 
     /**
-     * @var \Application\SchoolBundle\Entity\ClassGroup
+     * @var \Application\SchoolBundle\Entity\Transfer
      */
-    private $classgroup;
+    private $transfer;
 
     /**
      * @var \Application\SchoolBundle\Entity\Nationality
      */
     private $nationality;
 
+    /**
+     * @var \Application\SchoolBundle\Entity\ReportStudent
+     */
+    private $report;
+
 
     /**
      * Set firstname
      *
      * @param string $firstname
-     * @return Student
+     * @return ReportStudent
      */
     public function setFirstname($firstname)
     {
@@ -87,7 +92,7 @@ class Student
      * Set lastname
      *
      * @param string $lastname
-     * @return Student
+     * @return ReportStudent
      */
     public function setLastname($lastname)
     {
@@ -110,7 +115,7 @@ class Student
      * Set personalNumber
      *
      * @param string $personalNumber
-     * @return Student
+     * @return ReportStudent
      */
     public function setPersonalNumber($personalNumber)
     {
@@ -133,7 +138,7 @@ class Student
      * Set sex
      *
      * @param string $sex
-     * @return Student
+     * @return ReportStudent
      */
     public function setSex($sex)
     {
@@ -156,7 +161,7 @@ class Student
      * Set birthday
      *
      * @param \DateTime $birthday
-     * @return Student
+     * @return ReportStudent
      */
     public function setBirthday($birthday)
     {
@@ -179,7 +184,7 @@ class Student
      * Set address
      *
      * @param string $address
-     * @return Student
+     * @return ReportStudent
      */
     public function setAddress($address)
     {
@@ -202,7 +207,7 @@ class Student
      * Set telephone
      *
      * @param string $telephone
-     * @return Student
+     * @return ReportStudent
      */
     public function setTelephone($telephone)
     {
@@ -232,64 +237,12 @@ class Student
     }
 
     /**
-     * Set classgroup
-     *
-     * @param \Application\SchoolBundle\Entity\ClassGroup $classgroup
-     * @return Student
-     */
-    public function setClassgroup(\Application\SchoolBundle\Entity\ClassGroup $classgroup = null)
-    {
-        $this->classgroup = $classgroup;
-
-        return $this;
-    }
-
-    /**
-     * Get classgroup
-     *
-     * @return \Application\SchoolBundle\Entity\ClassGroup
-     */
-    public function getClassgroup()
-    {
-        return $this->classgroup;
-    }
-
-    /**
-     * Set nationality
-     *
-     * @param \Application\SchoolBundle\Entity\Nationality $nationality
-     * @return Student
-     */
-    public function setNationality(\Application\SchoolBundle\Entity\Nationality $nationality = null)
-    {
-        $this->nationality = $nationality;
-
-        return $this;
-    }
-
-    /**
-     * Get nationality
-     *
-     * @return \Application\SchoolBundle\Entity\Nationality
-     */
-    public function getNationality()
-    {
-        return $this->nationality;
-    }
-
-    /**
-     * @var \Application\SchoolBundle\Entity\Transfer
-     */
-    private $transfer;
-
-
-    /**
      * Set transfer
      *
      * @param \Application\SchoolBundle\Entity\Transfer $transfer
-     * @return Student
+     * @return ReportStudent
      */
-    public function setTransfer(\Application\SchoolBundle\Entity\Transfer $transfer = null)
+    public function setTransfer(\Application\SchoolBundle\Entity\ReportTransfer $transfer = null)
     {
         $this->transfer = $transfer;
 
@@ -304,5 +257,80 @@ class Student
     public function getTransfer()
     {
         return $this->transfer;
+    }
+
+    /**
+     * Set report
+     *
+     * @param \Application\SchoolBundle\Entity\Report $report
+     * @return Report
+     */
+    public function setReport(\Application\SchoolBundle\Entity\Report $report = null)
+    {
+        $this->report = $report;
+
+        return $this;
+    }
+
+    /**
+     * Get report
+     *
+     * @return \Application\SchoolBundle\Entity\Report
+     */
+    public function getReport()
+    {
+        return $this->report;
+    }
+
+    /**
+     * @var string
+     */
+    private $classGroup;
+
+
+    /**
+     * Set classGroup
+     *
+     * @param string $classGroup
+     * @return ReportStudent
+     */
+    public function setClassGroup($classGroup)
+    {
+        $this->classGroup = $classGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get classGroup
+     *
+     * @return string
+     */
+    public function getClassGroup()
+    {
+        return $this->classGroup;
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
+     * @return ReportStudent
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
     }
 }
