@@ -19,7 +19,7 @@
     </div>
     <script>
         $.ajax({
-            url: 'http://monitor/app_dev.php/student/gender/pie',
+            url: 'http://monitor.cloudcontrolled.com/student/gender/pie',
             success: function (data) {
                 var pieData = [
                     {
@@ -38,7 +38,7 @@
         });
 
         $.ajax({
-            url: 'http://monitor/app_dev.php/student/class/pie',
+            url: 'http://monitor.cloudcontrolled.com/student/class/pie',
             success: function (data) {
                 var classPie = new Chart(document.getElementById("class-canvas").getContext("2d")).Pie(data);
 

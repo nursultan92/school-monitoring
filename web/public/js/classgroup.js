@@ -5,7 +5,7 @@ $('#school_class_group_grade').on('change', function () {
     $.ajax({
 
         //TODO: Add jsrouting route Routing.generate().
-        url: 'http://school/app_dev.php/classgroups/grade/' + grade,
+        url: 'http://monitor.cloudcontrolled.com/classgroups/grade/' + grade,
         /*url:url,*/
         success: function (data) {
             $('#school_class_group_alphabet').replaceWith(data);
