@@ -37,14 +37,3 @@ $('#application_schoolbundle_academicyear_year').on('change', function () {
         }
     });
 });
-$('.add-history').on('click', function () {
-    var url = 'http://monitor/app_dev.php/report/history/add';
-    $.ajax({
-        url: url,
-        success: function (data) {
-            if (confirm('Успешно сохранено в архив. Перейти на страницу архива?')) {
-                window.location = 'http://monitor/app_dev.php/reports';
-            }
-        }
-    })
-});

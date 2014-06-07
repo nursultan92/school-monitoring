@@ -1,6 +1,11 @@
 {% extends '::base.html.twig' %}
 {% block content %}
     <div class="jumbotron">
-        Hello world
+        <a href="{{ path('shool_classgroup_upgrade') }}">
+            <button type="button" class="btn btn-danger">Новый учебный год</button>
+        </a>
+        <a href="{{ path('report_history_add') }}">
+            <button type="button" class="btn btn-warning">Добавить в архив</button>
+        </a>
     </div>
 {% endblock %}

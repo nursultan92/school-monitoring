@@ -22,7 +22,12 @@ class ReportController extends Controller
     public function indexAction()
     {
         $reports = $em = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:Report')->findAll();
-        return $this->render('ApplicationSchoolBundle:Report:index.html.twig', array('reports' => $reports));
+
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate($reports, $this->get('request')->query->get('page', 1), 20);
+
+        return $this->render('ApplicationSchoolBundle:Report:index.html.twig', array('reports' => $pagination));
     }
 
     public function createAction()
@@ -64,10 +69,11 @@ class ReportController extends Controller
         $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll()[0];
 
         $classes = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findAll();
-        $result = $em->getRepository('ApplicationSchoolBundle:Report')->persist($school, $classes);
+        $em->getRepository('ApplicationSchoolBundle:Report')->persist($school, $classes);
 
+        $this->get('session')->getFlashBag()->add('notice', 'Вы успешно добавили учащичся в архив');
 
-        return new JsonResponse($result);
+        return $this->redirect($this->generateUrl('school_report_index'));
     }
 
     public function searchFormAction()

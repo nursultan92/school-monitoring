@@ -12,17 +12,52 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClassGroupRepository extends EntityRepository
 {
-    public function persist(){
+    public function persist()
+    {
         $classGroups = $this->findAll();
 
+        $i = 1;
+        /*@var $classGroup ClassGroup*/
         foreach ($classGroups as $classGroup) {
-            $reportClass = new ReportClassPersonal();
+
+            $reportClass = new ReportClass();
             $reportClass->setFirstname($classGroup->getPersonal()->getFirstname());
             $reportClass->setLastname($classGroup->getPersonal()->getLastname());
-            $reportClass->setClassGroup($classGroup->__toString());
-            $this->_em->persist($reportClass);
-            $this->_em->flush();
-        }
+            $reportClass->setName($classGroup->__toString());
 
+            $this->getEntityManager()->persist($reportClass);
+
+            if ($i++ % 25 == 0) {
+                $this->getEntityManager()->flush();
+                $this->getEntityManager()->clear();
+            }
+        }
+        $this->getEntityManager()->flush();
+
+    }
+
+    public function upgrade()
+    {
+        $classes = $this->findAll();
+
+        /* @var $class ClassGroup */
+        $i = 1;
+        foreach ($classes as $class) {
+            if ($class->getGrade() == 11) {
+                $class->removeStudents();
+            } else {
+
+                $class->setGrade($class->getGrade() + 1);
+
+            }
+
+            $this->getEntityManager()->persist($class);
+
+            if ($i++ % 25 == 0) {
+                $this->getEntityManager()->flush();
+                $this->getEntityManager()->clear();
+            }
+        }
+        $this->getEntityManager()->flush();
     }
 }

@@ -2,6 +2,10 @@ school_main_index:
     pattern:  /
     defaults: { _controller: ApplicationSchoolBundle:Main:index }
 
+shool_classgroup_upgrade:
+    path: /upgrade
+    defaults: { _controller:  ApplicationSchoolBundle:ClassGroup:upgrade }
+
 school_classgroup_list:
     pattern:  /classgroups
     defaults: { _controller: ApplicationSchoolBundle:ClassGroup:list }

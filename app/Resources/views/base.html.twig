@@ -41,6 +41,13 @@
     </div>
 </nav>
 <div class="container content">
+
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     {% block body %}
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -54,6 +61,15 @@
             </div>
         </div>
     {% endblock %}
+</div>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted">Все права защищены &copy;
+            <script>var date = new Date();
+                document.write(date.getFullYear());</script>
+            Турдалиев Нурсултан
+        </p>
+    </div>
 </div>
 {% block javascripts %}
     <script src="{{ asset('public/js/jquery_1.11.0_jquery.js') }}"></script>

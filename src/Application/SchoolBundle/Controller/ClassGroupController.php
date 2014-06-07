@@ -13,6 +13,7 @@ use Application\SchoolBundle\Entity\ClassGroup;
 use Application\SchoolBundle\Form\ClassGroupType;
 use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -104,6 +105,19 @@ class ClassGroupController extends Controller
             $mpdf = $this->get('tfox.mpdfport');
             return $mpdf->generatePdfResponse($html);
         } else
-            return new Response($html);
+            return $this->render('ApplicationSchoolBundle:Report:classgroup_base.html.twig', array('classgroup' => $classGroup, 'byYear' => $byYear, 'school' => $school, 'byNationality' => $byNationality));
+    }
+
+    public function upgradeAction()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        try {
+            $em->getRepository('ApplicationSchoolBundle:ClassGroup')->upgrade();
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+        $this->get('session')->getFlashBag()->add('notice', 'Вы успешно начали новый учебный год');
+        return $this->redirect($this->generateUrl('school_main_index'));
     }
 } 

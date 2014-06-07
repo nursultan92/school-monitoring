@@ -216,4 +216,11 @@ class ClassGroup
     {
         return $this->active;
     }
+
+    public function removeStudents()
+    {
+        foreach ($this->getStudents() as $student) {
+            $this->removeStudent($student);
+        }
+    }
 }
