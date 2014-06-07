@@ -49,7 +49,7 @@ class ReportClass
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -72,7 +72,7 @@ class ReportClass
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -95,7 +95,7 @@ class ReportClass
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -105,12 +105,13 @@ class ReportClass
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -150,12 +151,13 @@ class ReportClass
     /**
      * Get students
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStudents()
     {
         return $this->students;
     }
+
     /**
      * @var Report
      */
@@ -183,5 +185,18 @@ class ReportClass
     public function getReport()
     {
         return $this->report;
+    }
+
+    public function getGenderCount()
+    {
+        $count = array('m' => 0, 'f' => 0);
+
+        /* @var $s ReportStudent */
+        foreach ($this->students as $s) {
+            $count['m'] += ($s->getSex() === 'М');
+            $count['f'] += ($s->getSex() === 'Ж');
+        }
+
+        return $count;
     }
 }

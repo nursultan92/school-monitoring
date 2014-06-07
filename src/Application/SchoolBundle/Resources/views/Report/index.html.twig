@@ -4,27 +4,28 @@
 {% block content %}
     {{ render(controller('ApplicationSchoolBundle:Report:searchForm')) }}
 
-            <table class="table table-striped">
+    <table class="table table-striped">
 
-            <thead>
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Учебный год</th>
+            <th>Четверть</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for report in reports %}
             <tr>
-                <th>Учебный год</th>
-                <th>Четверть</th>
+                <td>{{ loop.index }}</td>
+                <td><a href="{{ path('report_report',{'id': report.id}) }}">{{ report.academicYear }}</a></td>
+                <td><a href="{{ path('report_report',{'id': report.id}) }}">{{ report.quarter }}</a></td>
+                <td><a href="{{ path('school_report_delete',{'id': report.id}) }}" class="btn btn-danger">Удалить</a>
+                </td>
             </tr>
-            </thead>
-
-            <tbody>
-                {% for report in reports %}
-                    <tr>
-                        <td>
-                            <a href="{{ path('report_report',{'id': report.id}) }}">{{ report.academicYear }}</a>
-                        </td>
-                        <td>
-                            <a href="{{ path('report_report',{'id': report.id}) }}">{{ report.quarter }}</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-            </table>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

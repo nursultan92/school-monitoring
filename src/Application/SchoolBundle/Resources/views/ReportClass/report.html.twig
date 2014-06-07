@@ -1,0 +1,134 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    {% set students = class.students %}
+    <h2 class="text-center">Отчет</h2>
+
+    {#<p>Класс <strong>{{ classgroup.grade }} "{{ classgroup.alphabet }}"</strong></p>
+    <p>Классный руководитель <strong>{{ classgroup.personal }}</strong></p>#}
+
+    <p class="text-danger">На начало года (?) {#TODO: create column in table#}</p>
+
+    <p class="text-danger">На начало четверти: (?){#TODO:   calculate#}</p>
+
+    {#<p>На конец четверти: <strong>{{ classgroup.studentsByEnd }}</strong></p>#}
+
+    <p>Выбыло</p>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Ф.И.О</th>
+            <th>Число</th>
+            <th>Куда</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            {% if student.moved != NULL and student.moved =='Выбыл' %}
+                <tr>
+                    <td>{{ student.firstname }} {{ student.lastname }}</td>
+                    <td>{{ student.date|date('d-m-Y') }}</td>
+                    <td>{{ student.placeLocation }} </td>
+                    <td>{{ student.place }} </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Прибыло</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Ф.И.О</th>
+            <th>Число</th>
+            <th>Куда</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            {% if student.moved != NULL and student.moved =='Прибыл' %}
+                <tr>
+                    <td>{{ student.firstname }} {{ student.lastname }}</td>
+                    <td>{{ student.date|date('d-m-Y') }}</td>
+                    <td>{{ student.placeLocation }} </td>
+                    <td>{{ student.place }} </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <section>
+        <p>По годам</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Год</th>
+                {% for year in byYear %}
+                    <th>{{ year.y }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>мальчики</td>
+                {% for year in byYear %}
+                    <td>{{ year.male }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>девочки</td>
+                {% for year in byYear %}
+                    <td>{{ year.female }}</td>
+                {% endfor %}
+            </tr>
+
+            <tr>
+                <td>всего:</td>
+                {% for year in byYear %}
+                    <td>{{ year.total }}</td>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <p>По национальностям</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>нац.</th>
+                {% for st in byNationality %}
+                    <th>{{ st.nationality }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>мальч.</td>
+                {% for st in byNationality %}
+                    <td>{{ st.male }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>дев.</td>
+                {% for st in byNationality %}
+                    <td>{{ st.female }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>всего:</td>
+                {% for st in byNationality %}
+                    <td>{{ st.total }}</td>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+{% endblock %}

@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ReportStudent
 {
+
+    /**
+     * @var integer
+     */
+    private $id;
+
     /**
      * @var string
      */
@@ -45,14 +51,34 @@ class ReportStudent
     private $telephone;
 
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var \Application\SchoolBundle\Entity\Nationality
+     * @var string
      */
     private $nationality;
+
+    /**
+     * @var \Application\SchoolBundle\Entity\ReportClass
+     */
+    private $reportClass;
+
+    /**
+     * @var string
+     */
+    private $place;
+
+    /**
+     * @var string
+     */
+    private $moved;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $placeLocation;
 
 
     /**
@@ -227,35 +253,6 @@ class ReportStudent
     }
 
     /**
-     * @var string
-     */
-    private $classGroup;
-
-
-    /**
-     * Set classGroup
-     *
-     * @param string $classGroup
-     * @return ReportStudent
-     */
-    public function setClassGroup($classGroup)
-    {
-        $this->classGroup = $classGroup;
-
-        return $this;
-    }
-
-    /**
-     * Get classGroup
-     *
-     * @return string
-     */
-    public function getClassGroup()
-    {
-        return $this->classGroup;
-    }
-
-    /**
      * Set nationality
      *
      * @param string $nationality
@@ -277,10 +274,6 @@ class ReportStudent
     {
         return $this->nationality;
     }
-    /**
-     * @var \Application\SchoolBundle\Entity\ReportClass
-     */
-    private $reportClass;
 
 
     /**
@@ -299,31 +292,12 @@ class ReportStudent
     /**
      * Get reportClass
      *
-     * @return \Application\SchoolBundle\Entity\ReportClass 
+     * @return \Application\SchoolBundle\Entity\ReportClass
      */
     public function getReportClass()
     {
         return $this->reportClass;
     }
-    /**
-     * @var string
-     */
-    private $place;
-
-    /**
-     * @var string
-     */
-    private $moved;
-
-    /**
-     * @var \DateTime
-     */
-    private $date;
-
-    /**
-     * @var string
-     */
-    private $placeLocation;
 
 
     /**
@@ -342,7 +316,7 @@ class ReportStudent
     /**
      * Get place
      *
-     * @return string 
+     * @return string
      */
     public function getPlace()
     {
@@ -365,7 +339,7 @@ class ReportStudent
     /**
      * Get moved
      *
-     * @return string 
+     * @return string
      */
     public function getMoved()
     {
@@ -388,7 +362,7 @@ class ReportStudent
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -411,7 +385,7 @@ class ReportStudent
     /**
      * Get placeLocation
      *
-     * @return string 
+     * @return string
      */
     public function getPlaceLocation()
     {

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block content_title %}
     {{ report.academicYear }} {{ report.quarter }}
-    {% endblock %}
+{% endblock %}
 {% block content %}
     <table class="table table-striped">
         <thead>
@@ -13,13 +13,15 @@
             <th>Отчет по движению учащихся</th>
         </tr>
         </thead>
-        {% for class in report.reportClass  %}
+        {% for class in report.reportClass %}
             <tr>
                 <td>{{ loop.index }}</td>
                 <td>{{ class.name }}</td>
                 <td>{{ class.lastname }} {{ class.firstname }}</td>
-                <td><a class="text-success" href="">Подробная информация</a></td>
-                <td><a class="text-success" href="">Просмотреть отчет по классу</a></td>
+                <td><a class="text-success" href="{{ path('report_report_class',{'id': class.id}) }}">Подробная
+                        информация</a></td>
+                <td><a class="text-success" href="{{ path('report_report_report',{'id': class.id}) }}">Просмотреть отчет
+                        по классу</a></td>
             </tr>
         {% endfor %}
     </table>

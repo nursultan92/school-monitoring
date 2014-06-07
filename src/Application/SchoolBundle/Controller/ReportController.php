@@ -14,6 +14,7 @@ use Application\SchoolBundle\Form\ReportType;
 use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReportController extends Controller
 {
@@ -21,7 +22,7 @@ class ReportController extends Controller
     public function indexAction()
     {
         $reports = $em = $this->getDoctrine()->getRepository('ApplicationSchoolBundle:Report')->findAll();
-        return $this->render('ApplicationSchoolBundle:Report:index.html.twig',array('reports'=>$reports));
+        return $this->render('ApplicationSchoolBundle:Report:index.html.twig', array('reports' => $reports));
     }
 
     public function createAction()
@@ -29,15 +30,33 @@ class ReportController extends Controller
         return $this->render('ApplicationSchoolBundle:Report:create.html.twig');
     }
 
-    public function reportAction($id){
-        $report= $this->getDoctrine()->getManager()->getRepository('ApplicationSchoolBundle:Report')->find($id);
-        if(!$report){
+
+    public function deleteAction($id)
+    {
+
+        $em = $this->get('doctrine.orm.entity_manager');
+
+        $report = $em->getRepository('ApplicationSchoolBundle:Report')->find($id);
+        if (!$report) {
+            throw new EntityNotFoundException();
+        }
+        $em->remove($report);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('school_report_index'));
+    }
+
+    public function reportAction($id)
+    {
+        $report = $this->getDoctrine()->getManager()->getRepository('ApplicationSchoolBundle:Report')->find($id);
+        if (!$report) {
             throw new EntityNotFoundException();
         }
 
-        return $this->render('ApplicationSchoolBundle:Report:report.html.twig',array('report'=>$report));
+        return $this->render('ApplicationSchoolBundle:Report:report.html.twig', array('report' => $report));
 
     }
+
     public function addToHistoryAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -45,7 +64,7 @@ class ReportController extends Controller
         $school = $em->getRepository('ApplicationSchoolBundle:School')->findAll()[0];
 
         $classes = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findAll();
-        $result = $em->getRepository('ApplicationSchoolBundle:Report')->persist($school,$classes);
+        $result = $em->getRepository('ApplicationSchoolBundle:Report')->persist($school, $classes);
 
 
         return new JsonResponse($result);
@@ -62,6 +81,4 @@ class ReportController extends Controller
             array('form' => $reportForm->createView())
         );
     }
-
-
 } 

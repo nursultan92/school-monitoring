@@ -17,7 +17,7 @@ $('#school_class_group_grade').on('change', function () {
 $('form').on('click', '.btn-report', function () {
     var group_id = $('#school_class_group_alphabet').find('option:selected').val(),
         type = $('form').find('input[type="radio"]:checked').val(),
-        url = 'http://school/app_dev.php/report/classgroup/' + group_id + "/" + type;
+        url = 'http://monitor/app_dev.php/report/classgroup/' + group_id + "/" + type;
     $.ajax({
         url: url,
         method: "POST",
@@ -29,11 +29,22 @@ $('form').on('click', '.btn-report', function () {
 
 
 $('#application_schoolbundle_academicyear_year').on('change', function () {
-    var url = 'http://school/app_dev.php/academicyears/' + $(this).val() + '/quarters';
+    var url = 'http://monitor/app_dev.php/academicyears/' + $(this).val() + '/quarters';
     $.ajax({
         url: url,
         success: function (data) {
             alert(data);
         }
     });
+});
+$('.add-history').on('click', function () {
+    var url = 'http://monitor/app_dev.php/report/history/add';
+    $.ajax({
+        url: url,
+        success: function (data) {
+            if (confirm('Успешно сохранено в архив. Перейти на страницу архива?')) {
+                window.location = 'http://monitor/app_dev.php/reports';
+            }
+        }
+    })
 });

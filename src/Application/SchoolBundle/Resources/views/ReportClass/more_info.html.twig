@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    {#<h5>Список учащихся <strong>{{ class.grade }} "{{ class.alphabet }}"</strong> класса <span
+                class="pull-right">Классный руководитель <strong>{{ class.personal.lastname }} {{ class.personal.firstname }}</strong></span>
+    </h5>#}
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Ф.И. ученика</th>
+            <th>№ л.дела</th>
+            <th>Пол</th>
+            <th>Нац.</th>
+            <th>Год рождения</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+            <th>Прибыл</th>
+            <th>Выбыл</th>
+            <th>Число(выбыл)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for s in class.students %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ s.lastname }} {{ s.firstname }}</td>
+                <td>{{ s.personalNumber }}</td>
+                <td>{{ s.sex }}</td>
+                <td>{{ s.nationality }}</td>
+                <td>{{ s.birthday|date('d-m-Y') }}</td>
+                <td>{{ s.address }}</td>
+                <td>{{ s.telephone }}</td>
+                <td>{% if s.moved =='Прибыл' %} {{ s.place }} {% endif %}</td>
+                <td>{% if s.moved =='Выбыл' %} {{ s.place }} {% endif %}</td>
+                <td>{% if s.moved %} {{ s.date|date('d-m-Y') }} {% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p> Мальчиков: <strong>{{ class.genderCount.m }}</strong></p>
+    <p>Девочек: <strong>{{ class.genderCount.f }}</strong></p>
+
+{% endblock %}

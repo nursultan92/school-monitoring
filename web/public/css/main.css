@@ -57,3 +57,7 @@ nav {
 .btn-radio span {
     padding-left: 10px;
 }
+
+.container {
+    max-width: 970px;
+}

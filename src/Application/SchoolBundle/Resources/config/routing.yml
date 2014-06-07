@@ -1,6 +1,7 @@
 school_main_index:
     pattern:  /
     defaults: { _controller: ApplicationSchoolBundle:Main:index }
+
 school_classgroup_list:
     pattern:  /classgroups
     defaults: { _controller: ApplicationSchoolBundle:ClassGroup:list }
@@ -27,9 +28,14 @@ school_report_index:
     pattern:  /reports/
     defaults: { _controller: ApplicationSchoolBundle:Report:index }
 
+
 school_report_create:
     pattern: /report/create
     defaults: { _controller: ApplicationSchoolBundle:Report:create }
+
+school_report_delete:
+    path: /report/{id}/delete
+    defaults: { _controller:  ApplicationSchoolBundle:Report:delete }
 
 classgroup_report_classgroup:
     pattern:  /report/classgroup/{id}/report/{type}
@@ -47,10 +53,18 @@ student_summer:
     path: /report/whole
     defaults: { _controller:  ApplicationSchoolBundle:Student:summer }
 
-report_student_add:
+report_history_add:
     path: /report/history/add
     defaults: { _controller:  ApplicationSchoolBundle:Report:addToHistory }
 
 report_report:
     path: /reports/{id}
     defaults: { _controller:  ApplicationSchoolBundle:Report:report  }
+
+report_report_class:
+    path: /reportclass/{id}/more-info
+    defaults: { _controller:  ApplicationSchoolBundle:ReportClass:class }
+
+report_report_report:
+    path: /reportclass/{id}/report
+    defaults: { _controller:  ApplicationSchoolBundle:ReportClass:report }

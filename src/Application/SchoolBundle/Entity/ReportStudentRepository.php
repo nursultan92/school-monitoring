@@ -45,4 +45,19 @@ class ReportStudentRepository extends EntityRepository
 
         return true;
     }
+
+    public function byYear(ReportClass $class)
+    {
+
+        return $this->getEntityManager()
+            ->createQuery("select year(st.birthday) as y,sum( case when (st.sex='М') then 1 else 0 end ) as male, sum(case when (st.sex='Ж') then 1 else 0 end) as female, count(st.id) as total from ApplicationSchoolBundle:ReportStudent st join st.reportClass cg where cg = :g group by y order by y asc")->setParameter('g', $class)
+            ->getResult();
+    }
+
+    public function byNationality(ReportClass $class)
+    {
+        return $this->getEntityManager()
+            ->createQuery("select st.nationality,sum( case when (st.sex='М') then 1 else 0 end ) as male, sum(case when (st.sex='Ж') then 1 else 0 end) as female, count(st.id) as total from ApplicationSchoolBundle:ReportStudent st join st.reportClass cg where cg = :g  group by st.nationality order by st.nationality asc")->setParameter('g', $class)
+            ->getResult();
+    }
 }
