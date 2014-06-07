@@ -15,7 +15,7 @@ class ReportRepository extends EntityRepository
         $report->setQuarter($school->getCurrentQuarter());
 
 
-        foreach($classes as $class){
+        foreach ($classes as $class) {
 
             $rClass = new ReportClass();
 
@@ -24,7 +24,7 @@ class ReportRepository extends EntityRepository
             $rClass->setFirstname($class->getPersonal()->getFirstname());
             $rClass->setLastname($class->getPersonal()->getLastname());
 
-            foreach($class->getStudents() as $student){
+            foreach ($class->getStudents() as $student) {
                 $rClass->addStudent($student->toReportStudent($rClass));
             }
 

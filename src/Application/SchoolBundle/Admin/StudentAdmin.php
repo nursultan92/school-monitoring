@@ -34,6 +34,7 @@ class StudentAdmin extends Admin
             ->add('telephone')
             ->add('transfer', 'sonata_type_admin', array('delete' => false, 'btn_add' => false));
     }
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

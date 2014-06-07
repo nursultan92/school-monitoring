@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Application\SchoolBundle\Entity\ReportClass" table="report_class">
-    <id name="id" type="integer" column="id">
-      <generator strategy="AUTO"/>
-    </id>
-      <field name="name" type="string" column="name" length="10" nullable="false"/>
-      <field name="firstname" type="string" column="firstname" length="50" nullable="false"/>
-      <field name="lastname" type="string" column="lastname" length="50" nullable="false"/>
-      <one-to-many target-entity="Application\SchoolBundle\Entity\ReportStudent" mapped-by="reportClass" field="students">
-          <cascade>
-              <cascade-all/>
-          </cascade>
-      </one-to-many>
-      <many-to-one target-entity="Application\SchoolBundle\Entity\Report" field="report" inversed-by="reportClass"/>
-  </entity>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Application\SchoolBundle\Entity\ReportClass" table="report_class">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="name" type="string" column="name" length="10" nullable="false"/>
+        <field name="firstname" type="string" column="firstname" length="50" nullable="false"/>
+        <field name="lastname" type="string" column="lastname" length="50" nullable="false"/>
+        <one-to-many target-entity="Application\SchoolBundle\Entity\ReportStudent" mapped-by="reportClass"
+                     field="students">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+        <many-to-one target-entity="Application\SchoolBundle\Entity\Report" field="report" inversed-by="reportClass"/>
+    </entity>
 </doctrine-mapping>

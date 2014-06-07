@@ -1,5 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block content %}
+
     <div class="jumbotron">
         <a href="{{ path('shool_classgroup_upgrade') }}">
             <button type="button" class="btn btn-danger">Новый учебный год</button>
@@ -8,4 +9,41 @@
             <button type="button" class="btn btn-warning">Добавить в архив</button>
         </a>
     </div>
+    <canvas id="gender-canvas" height="250" width="250"></canvas>
+    <canvas id="class-canvas" height="250" width="250"></canvas>
+    <div class="canvas-info">
+        Девочки
+        <div id="girls"></div>
+        Мальчики
+        <div id="boys"></div>
+    </div>
+    <script>
+        $.ajax({
+            url: 'http://monitor/app_dev.php/student/gender/pie',
+            success: function (data) {
+                var pieData = [
+                    {
+                        value: data.malchiki,
+                        color: "#F38630"
+                    },
+                    {
+                        value: data.devochki,
+                        color: "#E0E4CC"
+                    }
+
+                ];
+                var myPie = new Chart(document.getElementById("gender-canvas").getContext("2d")).Pie(pieData);
+
+            }
+        });
+
+        $.ajax({
+            url: 'http://monitor/app_dev.php/student/class/pie',
+            success: function (data) {
+                var classPie = new Chart(document.getElementById("class-canvas").getContext("2d")).Pie(data);
+
+            }
+        });
+    </script>
+
 {% endblock %}

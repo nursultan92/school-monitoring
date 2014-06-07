@@ -31,7 +31,7 @@ class AcademicYearType extends AbstractType
         $resolver->setDefaults(
             array(
                 'data_class' => 'Application\SchoolBundle\Entity\AcademicYear',
-                'translation_domain'=>'messages.ru.yml'
+                'translation_domain' => 'messages.ru.yml'
             )
         );
     }

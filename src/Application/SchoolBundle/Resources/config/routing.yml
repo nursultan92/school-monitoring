@@ -72,3 +72,11 @@ report_report_class:
 report_report_report:
     path: /reportclass/{id}/report
     defaults: { _controller:  ApplicationSchoolBundle:ReportClass:report }
+
+student_gender_pie:
+    path: /student/gender/pie
+    defaults: { _controller:  ApplicationSchoolBundle:Student:genderPie }
+
+student_class_statistics:
+    path: /student/class/pie
+    defaults: { _controller:  ApplicationSchoolBundle:Student:classPie  }

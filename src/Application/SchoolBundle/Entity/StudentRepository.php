@@ -73,4 +73,48 @@ class StudentRepository extends EntityRepository
                 from ApplicationSchoolBundle:Student as s join s.classgroup as g left join s.transfer as t left join t.transferLocation as tl group by g")
             ->getResult();
     }
-} 
+
+    public function genderStatistics()
+    {
+        return $this->getEntityManager()
+            ->createQuery(" select
+            sum(case when (s.sex='М') then 1 else 0 end) as malchiki,
+            sum(case when (s.sex='Ж') then 1 else 0 end) as devochki
+            from ApplicationSchoolBundle:Student as s")->getOneOrNullResult();
+    }
+
+    public function classStatistics()
+    {
+        $stat = array();
+
+        $result = $this->getEntityManager()
+            ->createQuery("select count(s.id) as value
+            from ApplicationSchoolBundle:Student as s join s.classgroup as g group by g.grade
+            ")->getArrayResult();
+        foreach ($result as $r) {
+            $statistics = new Statistics();
+            $statistics->color = $this->random_color();
+            $statistics->value = $r['value'];
+            $stat[] = $statistics;
+        }
+
+        return $stat;
+
+    }
+
+    function random_color_part()
+    {
+        return str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT);
+    }
+
+    function random_color()
+    {
+        return '#' . $this->random_color_part() . $this->random_color_part() . $this->random_color_part();
+    }
+}
+
+class Statistics
+{
+    public $color;
+    public $value;
+}

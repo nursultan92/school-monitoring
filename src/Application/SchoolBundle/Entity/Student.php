@@ -322,13 +322,13 @@ class Student
             ->setTelephone($this->telephone)
             ->setNationality($this->getNationality()->getName())
             ->setReportClass($reportClass);
-            if($this->transfer){
-                $reportStudent
-                    ->setPlace($this->transfer->getPlace())
-                    ->setMoved($this->transfer->getMoved())
-                    ->setDate($this->transfer->getDate())
-                    ->setPlaceLocation($this->transfer->getTransferLocation()->getPlace());
-            }
+        if ($this->transfer) {
+            $reportStudent
+                ->setPlace($this->transfer->getPlace())
+                ->setMoved($this->transfer->getMoved())
+                ->setDate($this->transfer->getDate())
+                ->setPlaceLocation($this->transfer->getTransferLocation()->getPlace());
+        }
         return $reportStudent;
 
     }

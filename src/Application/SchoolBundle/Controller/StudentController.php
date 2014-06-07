@@ -10,6 +10,7 @@ namespace Application\SchoolBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class StudentController extends Controller
 {
@@ -32,5 +33,21 @@ class StudentController extends Controller
         $report = $em->getRepository("ApplicationSchoolBundle:Student")->wholeReport();
 
         return $this->render("@ApplicationSchool/School/summer.html.twig", array('report' => $report));
+    }
+
+    public function genderPieAction()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $data = $em->getRepository('ApplicationSchoolBundle:Student')->genderStatistics();
+
+        return new JsonResponse($data);
+    }
+
+    public function classPieAction()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $data = $em->getRepository('ApplicationSchoolBundle:Student')->classStatistics();
+
+        return new JsonResponse($data);
     }
 }

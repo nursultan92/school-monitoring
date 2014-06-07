@@ -98,6 +98,7 @@ class Report
     {
         return $this->quarter;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -130,7 +131,7 @@ class Report
     /**
      * Get reportClass
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getReportClass()
     {
