@@ -86,19 +86,26 @@ class StudentRepository extends EntityRepository
     public function classStatistics()
     {
         $stat = array();
+        $html_array = array();
 
         $result = $this->getEntityManager()
-            ->createQuery("select count(s.id) as value
-            from ApplicationSchoolBundle:Student as s join s.classgroup as g group by g.grade
-            ")->getArrayResult();
+            ->createQuery("select count(s.id) as value, g.grade as grade
+            from ApplicationSchoolBundle:Student as s join s.classgroup as g group by g.grade ")->getArrayResult();
         foreach ($result as $r) {
+            $color = $this->random_color();
             $statistics = new Statistics();
-            $statistics->color = $this->random_color();
+            $statistics->color = $color;
             $statistics->value = $r['value'];
             $stat[] = $statistics;
+
+            $s = new StatisticsHTML();
+            $s->color = $color;
+            $s->value = $r['value'];
+            $s->class = $r['grade'];
+            $html_array[] = $s;
         }
 
-        return $stat;
+        return array($stat, $html_array);
 
     }
 
@@ -117,4 +124,9 @@ class Statistics
 {
     public $color;
     public $value;
+}
+
+class StatisticsHTML extends Statistics
+{
+    public $class;
 }

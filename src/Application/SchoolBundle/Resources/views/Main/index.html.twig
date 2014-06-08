@@ -9,13 +9,24 @@
             <button type="button" class="btn btn-warning">Добавить в архив</button>
         </a>
     </div>
-    <canvas id="gender-canvas" height="250" width="250"></canvas>
-    <canvas id="class-canvas" height="250" width="250"></canvas>
-    <div class="canvas-info">
-        Девочки
-        <div id="girls"></div>
-        Мальчики
-        <div id="boys"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <canvas id="gender-canvas" height="250" width="250"></canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas id="class-canvas" height="250" width="250"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Девочки
+            <div id="girls" class="square"></div>
+            Мальчики
+            <div id="boys" class="square"></div>
+        </div>
+        <div class="col-md-6" id="class-pie">
+
+        </div>
     </div>
     <script>
         $.ajax({
@@ -40,8 +51,8 @@
         $.ajax({
             url: 'http://monitor.cloudcontrolled.com/student/class/pie',
             success: function (data) {
-                var classPie = new Chart(document.getElementById("class-canvas").getContext("2d")).Pie(data);
-
+                var classPie = new Chart(document.getElementById("class-canvas").getContext("2d")).Pie(data[0]);
+                $('#class-pie').html(data[1]);
             }
         });
     </script>

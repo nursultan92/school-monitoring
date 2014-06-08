@@ -48,6 +48,8 @@ class StudentController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         $data = $em->getRepository('ApplicationSchoolBundle:Student')->classStatistics();
 
-        return new JsonResponse($data);
+        $html = $this->renderView('@ApplicationSchool/Student/class_pie.html.twig', array('data' => $data[1]));
+
+        return new JsonResponse(array($data[0], $html));
     }
 }

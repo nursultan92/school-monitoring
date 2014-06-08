@@ -1,0 +1,5 @@
+<p>По классам</p>
+{% for d in data %}
+    {{ d.class }}
+    <div class="square" style="background-color: {{ d.color }}"></div>
+{% endfor %}
