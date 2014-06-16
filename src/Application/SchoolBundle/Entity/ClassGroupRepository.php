@@ -44,15 +44,12 @@ class ClassGroupRepository extends EntityRepository
         $i = 1;
         foreach ($classes as $class) {
             if ($class->getGrade() == 11) {
-                $class->removeStudents();
+                $this->getEntityManager()->remove($class);
             } else {
 
                 $class->setGrade($class->getGrade() + 1);
-
+                $this->getEntityManager()->persist($class);
             }
-
-            $this->getEntityManager()->persist($class);
-
             if ($i++ % 25 == 0) {
                 $this->getEntityManager()->flush();
                 $this->getEntityManager()->clear();

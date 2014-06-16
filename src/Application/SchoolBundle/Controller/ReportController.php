@@ -71,7 +71,7 @@ class ReportController extends Controller
         $classes = $em->getRepository('ApplicationSchoolBundle:ClassGroup')->findAll();
         $em->getRepository('ApplicationSchoolBundle:Report')->persist($school, $classes);
 
-        $this->get('session')->getFlashBag()->add('notice', 'Вы успешно добавили учащичся в архив');
+        $this->get('session')->getFlashBag()->add('notice', 'Вы успешно добавили учащихся в архив');
 
         return $this->redirect($this->generateUrl('school_report_index'));
     }
