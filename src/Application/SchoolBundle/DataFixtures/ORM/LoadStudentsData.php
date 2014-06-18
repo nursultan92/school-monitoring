@@ -525,7 +525,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1993-01-03'),
                 'address' => "Исфана",
                 "telephone" => '0772302040',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-2')
             ),
             array(
@@ -536,7 +536,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-01-23'),
                 'address' => "Кочкор",
                 "telephone" => '0543344434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-0')
             ),
             array(
@@ -548,7 +548,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Сузак",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'nationality' => $this->getReference('nationality-2')
             ),
             array(
                 'firstname' => 'Азамат',
@@ -559,7 +559,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Нарын",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'nationality' => $this->getReference('nationality-2')
             ),
             array(
                 'firstname' => 'Айкерим',
@@ -657,7 +657,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-10-26'),
                 'address' => "Бишкек",
                 "telephone" => '0550234310',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
             array(
@@ -679,8 +679,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1993-11-12'),
                 'address' => "Талас",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'class' => $this->getReference('class-group-2'),
+                'nationality' => $this->getReference('nationality-2')
             ),
             array(
                 'firstname' => 'Алтын',
@@ -734,7 +734,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-05-23'),
                 'address' => "Нарын",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-0')
             ),
             array(
@@ -767,8 +767,8 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1993-11-12'),
                 'address' => "Талас",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'class' => $this->getReference('class-group-2'),
+                'nationality' => $this->getReference('nationality-2')
             ),
             array(
                 'firstname' => 'Алтын',
@@ -778,7 +778,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-02-03'),
                 'address' => "Баткен",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
             array(
@@ -812,7 +812,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Сузак",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'nationality' => $this->getReference('nationality-1')
             ),
             array(
                 'firstname' => 'Азамат',
@@ -823,7 +823,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Нарын",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-0')
+                'nationality' => $this->getReference('nationality-2')
             ),
             array(
                 'firstname' => 'Айкерим',
@@ -833,7 +833,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-10-26'),
                 'address' => "Бишкек",
                 "telephone" => '0550234310',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
             array(
@@ -855,7 +855,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1993-11-12'),
                 'address' => "Талас",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-0')
             ),
             array(
@@ -866,7 +866,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-02-03'),
                 'address' => "Баткен",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
             array(
@@ -888,7 +888,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1992-01-23'),
                 'address' => "Кочкор",
                 "telephone" => '0543344434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
             array(
@@ -899,7 +899,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'birthday' => new DateTime('1997-05-23'),
                 'address' => "Сузак",
                 "telephone" => '0543343434',
-                'class' => $this->getReference('class-group-0'),
+                'class' => $this->getReference('class-group-2'),
                 'nationality' => $this->getReference('nationality-1')
             ),
         );
