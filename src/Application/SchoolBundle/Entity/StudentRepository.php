@@ -95,7 +95,7 @@ class StudentRepository extends EntityRepository
             $color = $this->random_color();
             $statistics = new Statistics();
             $statistics->color = $color;
-            $statistics->value = $r['value'];
+            $statistics->value = (int)$r['value'];
             $stat[] = $statistics;
 
             $s = new StatisticsHTML();
