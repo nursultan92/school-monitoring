@@ -9,7 +9,9 @@
 namespace Application\SchoolBundle\Controller;
 
 
+use Application\SchoolBundle\Entity\AcademicYear;
 use Application\SchoolBundle\Entity\ClassGroup;
+use Application\SchoolBundle\Entity\School;
 use Application\SchoolBundle\Form\ClassGroupType;
 use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -113,9 +115,25 @@ class ClassGroupController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         try {
             $em->getRepository('ApplicationSchoolBundle:ClassGroup')->upgrade();
+            /* @var $school School*/
+            $school  = $em->getRepository('ApplicationSchoolBundle:School')->findAll()[0];
+            /* @var $academicYear AcademicYear*/
+            $academicYear = $school->getAcademicYear();
+            $oldYear = explode('-',$academicYear->getYear());
+
+            $year = new AcademicYear();
+            $year->setYear($oldYear[1] . ((int)$oldYear[1]+1));
+            $em->persist($year);
+            $em->flush();
+
+            $school->setAcademicYear($year);
+            $em->persist($school);
+            $em->flush();
         } catch (\Exception $e) {
             throw $e;
         }
+
+
 
         $this->get('session')->getFlashBag()->add('notice', 'Вы успешно начали новый учебный год');
         return $this->redirect($this->generateUrl('school_main_index'));
