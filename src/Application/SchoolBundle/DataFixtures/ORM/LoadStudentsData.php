@@ -889,7 +889,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Кочкор",
                 "telephone" => '0543344434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-11')
+                'nationality' => $this->getReference('nationality-1')
             ),
             array(
                 'firstname' => 'Айбек',
@@ -900,7 +900,7 @@ class LoadStudentsData extends AbstractFixture implements OrderedFixtureInterfac
                 'address' => "Сузак",
                 "telephone" => '0543343434',
                 'class' => $this->getReference('class-group-0'),
-                'nationality' => $this->getReference('nationality-11')
+                'nationality' => $this->getReference('nationality-1')
             ),
         );
 
